@@ -1,0 +1,75 @@
+.header-nav {
+  display: flex; /* Обязательно используйте flexbox */
+  flex-direction: column; /* По умолчанию вертикально */
+  gap: 33px; 
+  justify-content: left;
+  height: 100%;
+  padding: 3.5rem 2rem 12rem ;
+
+  text-align: left;
+
+  background-color: var(--pure-black);
+
+  @include font-styles('Quicksand',400, .75rem, .9375rem, var(--description-dark));
+}
+
+.nav-img{
+  display: flex;
+  flex-direction: row;
+  gap:1.5rem;
+  align-items: center;
+  justify-content: center;
+  padding: 0 0 14rem;
+
+}
+
+.nav-button{
+  width: 3rem;
+  margin: 1.5rem 0 5.4rem;
+
+}
+
+@media(min-width:#{$br-desktop}px){
+  .nav-button{
+    display: flex;
+    gap:1rem;
+    justify-content: center; /* Выравниваем контент внутри кнопки */
+    width: auto; /* Ширина кнопки по содержимому */
+    margin: 2rem;
+    margin-right: 3rem;
+    margin-left: auto; 
+
+    
+  }
+
+  .header-nav {
+    flex-direction: row; /* Горизонтальное расположение на десктопах */
+    align-items: center;
+    justify-content: flex-end;
+  }
+  
+}
+ 
+@media(min-width:#{$br-desktop}px){
+  .header-nav {
+
+    gap: 48px;
+  
+    justify-content: start;
+
+    padding: 2.5rem 3.5rem 3rem 1.5rem;
+
+  
+    background-color: var(--pure-black);
+  
+    @include font-styles('Quicksand',400, 1.125rem, 1.5rem, var(--description-dark));
+  }
+
+  .nav-button{
+            gap: .8rem;
+            margin: 2rem;
+            margin-right: 2rem;
+            margin-left: auto;
+  }
+
+}

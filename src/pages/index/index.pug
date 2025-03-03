@@ -1,0 +1,18 @@
+extends @shared/layout/default/default
+include ../about/about.pug
+include ../header/header.pug
+include ../services/srvices.pug
+include ../portfolio/portfolio.pug
+include ../testimonials/testimonials.pug
+block variables
+  -
+    const title = 'Welcome to Start Template'
+    const breadcrumbs = ['breadcrumbs', 'index']
+
+block content
+  +Header
+  +About
+  +services
+  +portfolio
+  +Testimonials
+

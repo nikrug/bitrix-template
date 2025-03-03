@@ -1,0 +1,18 @@
+.popup-block{
+  &__actions{
+    display: flex;
+    flex-direction: row;
+    gap: 26px;
+    max-width: 270px;
+    
+  }
+
+  .j-example-popup-button{
+    display: unset;
+  }
+
+
+ 
+}
+
+

@@ -1,0 +1,70 @@
+@import "./components";
+
+.header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: $index-4;
+
+  width: 100vw;
+
+  background-color: var(--pure-black);
+
+  transition: transform .3s;
+
+  &._hidden {
+    transform: translateY(-100%);
+  }
+
+  &__wrapper {
+    position: relative;
+    z-index: $index-1;
+
+    padding: 16px 0;
+
+    background-color: var(--pure-black);
+  }
+
+  &__container {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 16px;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__nav {
+    display: none;
+  }
+
+  &__drop {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: dvh(100);
+    padding-top: 86px;
+
+    transition: transform .3s;
+
+    &:not(._active) {
+      transform: translateY(-100%);
+    }
+  }
+
+  @include br-desktop {
+    &__container {
+      grid-template-columns: auto 1fr;
+      justify-content: initial;
+    }
+
+    &__burger {
+      display: none;
+    }
+
+    &__nav {
+      display: initial;
+    }
+  }
+}

@@ -1,0 +1,18 @@
+mixin HeaderNavigation
+    -
+        const {navList} = require('./config')
+    ul.header-nav
+        li
+            a(lng="header_menu_home" href="/home") Home
+        li
+            a(lng="header_menu_about" href="/about") About
+        li
+            a(lng="header_menu_services" href="/services") Services
+        li
+            a(lng="header_menu_projects" href="/projects") Projects
+
+
+        button.nav-button
+            a.btnEn.menu__text EN 
+            a.btnRu.menu__text RU  
+        +PopupBlock

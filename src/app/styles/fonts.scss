@@ -1,0 +1,70 @@
+
+@font-face {
+   font-weight: 700;
+   font-family: Roboto;
+   font-style: normal;
+   src: url('@fonts/roboto/roboto-bold.woff2') format('woff2'), url('@fonts/roboto/roboto-bold.woff') format('woff'), url('@fonts/roboto/roboto-bold.ttf') format('truetype');
+}
+
+@font-face {
+   font-weight: 400;
+   font-family: Roboto;
+   font-style: normal;
+   src: url('@fonts/roboto/roboto-regular.woff2') format('woff2'), url('@fonts/roboto/roboto-regular.woff') format('woff'), url('@fonts/roboto/roboto-regular.ttf') format('truetype');
+}
+
+@font-face {
+   font-weight: 700; /* Обычный вес */
+   font-family: Quicksand; /* Название шрифта */
+   font-style: normal; /* Обычный стиль */
+   src: url('@fonts/Quicksand/Quicksand-Bold.ttf') format('truetype'); 
+ }
+ 
+@font-face {
+   font-weight: 300; /* Жирный вес */
+   font-family: Quicksand;
+   font-style: normal; /* Обычный стиль */
+   src: url('@fonts/Quicksand/Quicksand-Light.ttf') format('truetype'); 
+ }
+ 
+@font-face {
+   font-weight: 400; /* Обычный вес */
+   font-family: Quicksand;
+   font-style: normal; /* Курсивный стиль */
+   src: url('@fonts/Quicksand/Quicksand-Regular.ttf') format('truetype'); 
+ }
+ 
+@font-face {
+   font-weight: 500; /* Жирный вес */
+   font-family: Quicksand;
+   font-style: normal; /* Курсивный стиль */
+   src: url('@fonts/Nunito/Nunito-Medium.ttf') format('truetype'); 
+ }
+
+@font-face {
+   font-weight: 600; /* Жирный вес */
+   font-family: Quicksand;
+   font-style: normal; /* Курсивный стиль */
+   src: url('@fonts/Quicksand/Quicksand-Bold.ttf') format('truetype'); 
+ }
+
+@font-face {
+   font-weight: 800; /* Жирный вес */
+   font-family: Nunito;
+   font-style: normal; /* Курсивный стиль */
+   src: url('@fonts/Nunito/Nunito-ExtraBold.ttf') format('truetype'); 
+}
+
+@font-face {
+   font-weight: 700; /* Жирный вес */
+   font-family: Nunito;
+   font-style: normal; /* Курсивный стиль */
+   src: url('@fonts/Nunito/Nunito-Bold.ttf') format('truetype'); 
+}
+
+@font-face {
+   font-weight: 400; /* Жирный вес */
+   font-family: Nunito;
+   font-style: normal; /* Курсивный стиль */
+   src: url('@fonts/Nunito/Nunito-Regular.ttf') format('truetype'); 
+}

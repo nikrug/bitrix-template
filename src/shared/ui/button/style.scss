@@ -1,0 +1,79 @@
+@import "@shared/styles";
+
+.simple-btn {
+  position: relative;
+
+  display: block;
+  width: 340px;
+  height: 44px;
+  margin-right: 0;
+  
+  padding: 0;
+
+  --bg: var(--pure-white);
+  color: var(--light-blue);
+
+  line-height: 120%;
+  text-align: center;
+
+  background: var(--bg, $color-red);
+
+  border:1px solid var(--light-blue);
+  border-radius: 24px;
+
+  @include font-styles('Quicksand',700, 16px, 24px, var(--light-blue));
+
+  transition: background-color .15s ease;
+
+  @include hover {
+    border-color:var(--blue);
+
+    @include font-styles('Quicksand',700, 16px, 24px, var(--blue));
+
+  }
+
+  @include mobile-active {
+    --bg: var(--blue);
+  }
+}
+
+    
+@media(min-width:#{$br-desktop}px){
+  .simple-btn {
+    position: relative;
+  
+    display: block;
+    width: 185px;
+    height: 44px;
+    margin-right: 2rem;
+  
+    padding: 0 32px ;
+  
+    --bg: var(--pure-white);
+    color: var(--light-blue);
+  
+    line-height: 120%;
+    text-align: center;
+  
+    background: var(--bg, $color-red);
+  
+    border:1px solid var(--light-blue);
+    border-radius: 24px;
+  
+    @include font-styles('Quicksand',700, 16px, 24px, var(--light-blue));
+  
+    transition: background-color .15s ease;
+  
+    @include hover {
+      border-color:var(--blue);
+  
+      @include font-styles('Quicksand',700, 16px, 24px, var(--blue));
+  
+    }
+  
+    @include mobile-active {
+      --bg: var(--blue);
+    }
+  }
+
+}

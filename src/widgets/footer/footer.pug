@@ -1,0 +1,24 @@
+include components/index
+mixin Footer
+    -
+        const { footerBodyList } = require('./config')
+    footer.footer
+        .footer__container
+            .footer__logo-top
+                .footer__top
+                    +FooterLogo
+                .footer__body
+                    each item, index in footerBodyList
+                        if index < 2
+                            +FooterNavColumn(item).footer__column
+                        else
+                            +FooterNavColumn(item).footer__column(style="grid-column: 1;")
+            .footer__img-box
+                img.fade-in(src="public/images/footer/facebook.svg")
+                img.fade-in(src="public/images/footer/insta.svg")
+                img.fade-in(src="public/images/footer/in.svg")
+                img.fade-in(src="public/images/footer/mail.svg")
+                img.fade-in(src="public/images/footer/twitter.svg")
+                
+            .footer__img-box-text
+                p.footer__text.fade-in Copyright @ 2022 Agency Creative. All Rights Reserved

@@ -1,0 +1,38 @@
+.footer-nav-column {
+  padding-left: 1rem;
+
+  &__title {
+    margin-bottom: 25px;
+    
+    @include font-styles('Quicksand',700, none, none, White);
+  }
+
+  &__body {
+    display: grid;
+    gap: 27px;
+  }
+
+  &__link {
+    width: fit-content;
+
+    @include font-styles('Quicksand',400, none, none, white);
+  }
+  
+}
+
+@media(min-width:#{$br-tablet}px) {
+
+} 
+  
+@media(min-width:#{$br-desktop}px){
+  .footer-nav-column {
+    
+    padding-left: 5rem;
+    padding-top: 8rem;
+
+    &__title {
+      @include font-styles('Quicksand',700,1.375rem, 1.6875rem, White);
+    }
+
+}
+}

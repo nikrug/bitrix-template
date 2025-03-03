@@ -1,0 +1,5 @@
+import '../pages/header/lang.js'
+import './index/index'
+import './header/headerController'
+import './header/components/header-navigation/style.js'
+import '../pages/header/animation.js'

@@ -1,0 +1,140 @@
+// blocks
+.servises{
+    padding: 5.5rem 1rem 1.9rem 1rem;
+
+background-color: var(--bk-color);
+}
+
+.servises__text-block{
+display: flex;
+flex-direction: column;
+gap: 1rem;
+
+text-align: center;
+}
+
+.servises__panel-block{
+  display: flex;
+  flex-direction: column;
+  margin-top: 4.6rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  
+}
+
+// text
+.servises__title-text{
+    @include font-styles('Nunito',700, none, none, var(--description-dark));
+    @include t-title;
+}
+
+.servises__sub-title-text{
+    @include font-styles('Quicksand',600, none, none, var(--light-blue));
+    @include t-sub-title;
+}
+
+.servises__text{
+    @include font-styles('Quicksand',400, none, none, var(--description-light));
+    @include t-text;
+    padding-top:1rem;
+     
+}
+
+.servises__pannel-text{
+    @include font-styles('Quicksand',700, 1rem, 1.5rem,var(--description-dark));
+}
+
+// element
+.servises__pannel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; 
+    height: 269px;
+    max-width: 262px;
+    margin: 0 2rem 35px;
+    padding: 1rem 0;
+
+    text-align: center;
+    
+    border: 1px solid var(--panel-border);
+    border-radius: 1.875rem;
+
+    cursor: pointer;
+
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Плавный переход для transform и box-shadow */
+}
+
+.servises__pannel:hover {
+    box-shadow: 0 4px 15px var(--panel-border); /* Тень под панелью */
+    
+    transform: translateY(-5px); /* Поднятие панели вверх */
+}
+
+.servises__image-container {
+    position: relative;
+   
+    margin-bottom: 1rem;
+}
+
+.servises__image-background {
+    width: 100%; /* Масштабируем фоновое изображение по ширине контейнера */
+    height: auto; /* Сохраняем пропорции изображения */
+}
+
+.servises__image-overlay {
+    position: absolute; /* Абсолютное позиционирование для наложенной картинки */
+    top: 50%; /* Устанавливаем верхнюю границу по центру контейнера */
+    left: 50%;
+
+    width: 60%; /* Установите ширину наложенного изображения */
+    height: auto; /* Сохраняем пропорции наложенного изображения */
+
+    transform: translate(-50%, -50%); /* Смещаем элемент обратно на 50% его ширины и высоты */
+   
+    pointer-events: none; /* Опционально, чтобы наложенное изображение не влияло на события мыши */
+}
+
+@media(min-width:#{$br-tablet}px) {
+    .servises__text-block{
+        display: flex;
+    }
+} 
+      
+@media(min-width:#{$br-desktop}px){
+    .servises__panel-block{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        margin-top: 9rem;
+        margin-right: 2rem;
+    }
+
+    .servises{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+
+        padding:0 1rem 0 5rem;
+
+        background-color: var(--bk-color);
+    }
+   
+    .servises__pannel-text{
+        @include font-styles('Quicksand',700, 1.5rem, 2.125rem,var(--description-dark));
+    }
+
+    .servises__text-block{
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        width: 500px;
+        margin: 14rem  1rem;
+
+        text-align: left;
+    }
+
+    .servises__pannel{
+        padding: 0;
+        margin: 0;
+    }
+
+}

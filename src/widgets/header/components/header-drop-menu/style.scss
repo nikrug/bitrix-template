@@ -1,0 +1,15 @@
+.header-drop-menu {
+
+  background-color: var(--bk-color);
+}
+
+@media(min-width:#{$br-desktop}px){
+  .header-drop-menu {
+    display: none;
+
+    background-color: var(--bk-color);
+
+    visibility: hidden;
+  }
+  
+  }
