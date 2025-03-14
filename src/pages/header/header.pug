@@ -1,5 +1,15 @@
 mixin Header 
- 
+    #preloader
+        .preloader__block
+            .preloader__image-block.animated-image
+                img#animated-image(src="public/images/header/logo-animate.svg")
+            
+            .preloader__text-block
+                p.slide-in.header__slider-title-text Agency
+                p.slide-in.header__slider-sub-title-text Creative
+        
+        .preloader__text-bloc-bottom
+            p.slide-in-bottom.header__slider-text will help to reach your goals.
  
     .header__content.fade-in
         div.balloon-container.fade-in

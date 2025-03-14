@@ -35,7 +35,7 @@
    .potfolio__button{
     @include button-style( 12.25rem, 2.75rem,var(--pure-white),1px solid var(--light-blue),3rem);
     @include font-styles('Quicksand',700, 1rem, 1.5rem, var(--light-blue));
-    margin: 55px 0 44px 0;
+    margin: 55px 0 44px;
 }
 
    // text
@@ -127,12 +127,13 @@
        .potfolio__button{
         @include button-style( 14.125rem, 3rem,var(--pure-white),1px solid var(--light-blue),3rem);
         @include font-styles('Quicksand',700, 1rem, 1.5rem, var(--light-blue));
-        margin: 0px 0 200px;
+        margin: 0 0 200px;
 
     }
+
         .portfolio__text{
-            margin: .6rem 0;
             width: 700px;
+            margin: .6rem 0;
         }
    
    }

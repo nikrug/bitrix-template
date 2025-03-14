@@ -94,4 +94,5 @@ class HeaderController {
     this.container.classList.add(EClasses.HIDDEN)
   }
 }
+
 initBlockClass('.j-header', HeaderController)

@@ -17,18 +17,14 @@
 
   &__body {
     display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Первоначальная настройка для мобильного */
     gap: 36px;
+    row-gap: 36px;
 
-    @include infinite-grid(100px);
+    white-space: nowrap;
+ 
+    text-overflow: ellipsis;
   }
-}
-.footer__body {
-  display: grid;
-  row-gap: 36px;
-  column-gap: 0;
-  grid-template-columns: repeat(2, 1fr); /* Первоначальная настройка для мобильного */
-  text-overflow: ellipsis;
-  white-space: nowrap;
 }
 
 .footer__logo-top{
@@ -45,6 +41,7 @@
 .footer__column:nth-child(n+3) {
   grid-column: 1; /* Размещаем все последующие блоки в первой колонне */
 }
+
 .footer__img-box{
   display: flex;
   flex-direction: row;
@@ -79,7 +76,9 @@
 
 
 @media(min-width:#{$br-tablet}px) {
-
+  .footer__column:nth-child(n+3) {
+    grid-column: 1; /* Размещаем все последующие блоки в первой колонне */
+  }
 } 
     
 @media(min-width:#{$br-desktop}px){
@@ -101,8 +100,8 @@
     gap: 2.7rem;
     width: 500px;
     max-width: 20000px;
-    padding-top: 4.7rem;
     margin-left: 29.3rem;
+    padding-top: 4.7rem;
     padding-bottom: 1.1rem;
   }
 
