@@ -82,7 +82,7 @@
       },
       about_button2: {
           ru: "История компании",
-          en: "About Us"
+          en: "Our Story"
       },
       services_title: {
           ru: "Эффективные приемы",

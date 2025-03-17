@@ -42,16 +42,19 @@
   grid-column: 1; /* Размещаем все последующие блоки в первой колонне */
 }
 
+.footer__img-block{
+  border-bottom: none;
+  display: flex;
+  padding: 1rem;
+  gap: 2rem;
+}
+
 .footer__img-box{
   display: flex;
   flex-direction: row;
-  gap: 1.5rem;
+
   align-items: center;
   justify-content: center;
-  width: 100%;
-  max-width: 20000px;
-  padding-top: 4.7rem;
-  padding-bottom: 1.1rem;
 
   background-color: var(--footer-bk);
 
@@ -62,10 +65,9 @@
 .footer__img-box-text{
   display: flex;
   flex-direction: row;
-  width: 100%;
+  align-items: center;
+  justify-content: center;
   padding: 1.5rem 0.3rem 5rem 1rem;
-  
-  text-align: center;
 
   background-color: var(--footer-bk);
   border:3px solid var(--footer-bk);
@@ -79,11 +81,22 @@
   .footer__column:nth-child(n+3) {
     grid-column: 1; /* Размещаем все последующие блоки в первой колонне */
   }
+
+  .footer__img-block{
+    border-bottom: 1px solid #f1dbb1;
+  }
+
+  .footer__img-box{
+    width: 100%;
+    border-bottom: none;
+  }
 } 
     
 @media(min-width:#{$br-desktop}px){
   .footer__body {
     grid-template-columns: repeat(4, 1fr); /* Четыре колонки для десктопа */
+
+    white-space: normal;
   }
 
   /* Убираем правило для размещения дополнительных блоков в первую колонну */
@@ -93,14 +106,12 @@
 
   .footer__logo-top{
     display: grid;
-    grid-template-columns: repeat(6,1fr);
+    grid-template-columns: 30% 70%;
   }
 
   .footer__img-box{
     gap: 2.7rem;
-    width: 500px;
-    max-width: 20000px;
-    margin-left: 29.3rem;
+
     padding-top: 4.7rem;
     padding-bottom: 1.1rem;
   }
@@ -108,7 +119,6 @@
   
 .footer__img-box-text{
   @include font-styles('Quicksand',400, 1.125rem, 1.375rem, white);
-  padding: 1rem 0.3rem 5rem 30.5rem;
 }
 
 }

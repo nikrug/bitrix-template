@@ -13,6 +13,11 @@
   @include font-styles('Quicksand',400, .75rem, .9375rem, var(--description-dark));
 }
 
+a:hover{
+  font-weight: bold;
+
+}
+
 .nav-img{
   display: flex;
   flex-direction: row;

@@ -87,6 +87,11 @@
    .pannel__show{
        display: none;
    }
+
+   .pannel__show-tablet{
+    display: none;
+
+    }
    
    .base-image {
     display: block;
@@ -168,8 +173,9 @@
    }
    
    @media(min-width:#{$br-tablet}px) {
-       .pannel__show{
-           display: block;
+
+       .pannel__show-tablet{
+          display: block;
        }
    
        .testimonials__collaboration-block{
@@ -279,5 +285,9 @@
 
     .testimonials__pannel-image{
         margin: 1rem 0 0.1rem;
+    }
+
+    .pannel__show{
+        display: block;
     }
    }
