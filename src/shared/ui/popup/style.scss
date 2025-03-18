@@ -97,6 +97,32 @@
     @include font-styles('Quicksand',700, 1rem, 1.5rem, var(--light-blue));
 
  }
+
+ .modal__email-name-container:hover {
+  @include font-styles('Quicksand',700, 1rem, 1.5rem, var(--blue));
+  border: 1px solid var(--blue);
+}
+ 
+.modal__message-container:hover {
+  border: 1px solid var(--blue);
+}
+ 
+
+.modal__email-name-container:active {
+  border: 1px solid var(--description-dark);
+}
+
+.modal__email-name-container.error {
+  border-color: #dc3545; /* Красный цвет границы при ошибке */
+}
+.modal__message-container.error {
+  border-color: #dc3545; /* Красный цвет границы при ошибке */
+}
+
+label.error {
+  border-color: #dc3545; /* Красный цвет границы при ошибке */
+  color: red; /* Цвет текста лейбла */
+}
  
  .modal__email-name-container::placeholder {
      color: var(--light-blue); /* Задаем синий цвет для плейсхолдера */
@@ -153,8 +179,54 @@
 .modal__email-message-text{
   @include font-styles('Quicksand',700, 1rem, 1.5rem, var(--light-blue));
 }
+
+.modal__email-name-container, .modal__message-container {
+  position: relative;
+  margin: 20px 0;
 }
 
+input {
+  width: 90%;
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: var(--bk-color);
+  transition: border-color 0.2s;
+  @include font-styles('Quicksand',700, 1rem, 1.5rem, var(--description-dark));
+}
+
+input:focus {
+  border-color: var(--blue); /* Цвет границы при фокусе */
+}
+
+label {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  transition: 0.2s ease all;
+  color: var(--light-blue); /* Цвет текста лейбла */
+  background-color: var(--bk-color); /* Цвет фона лейбла */
+  pointer-events: none; /* Чтобы текст не блокировал ввод */
+  font-size: 16px; /* Размер текста лейбла */
+}
+
+input:hover + label {
+  color: var(--blue); /* Цвет текста */
+}
+
+.name-container label.error, .email-container label.error, .message-container label.error {
+  color: #dc3545; /* Красный цвет текста при ошибке */
+}
+
+
+input:focus + label,
+input:not(:placeholder-shown) + label {
+  top: -13px;
+  left: 20px;
+  height: 15px;
+  font-size: 12px;
+  background-color: var(--bk-color); /* Цвет фона лейбла */ /* Цвет фона при вводе */
+  background-size: auto;
+}
 
 
 @media(min-width:#{$br-tablet}px){
@@ -254,8 +326,19 @@
       border: 1px solid var(--light-blue);
       border-radius: 24px;
 
-      @include font-styles('Quicksand',700, 1rem, 1.5rem, var(--light-blue));
+      @include font-styles('Quicksand',700, 1rem, 1.5rem, var(--description-dark));
    }
+
+   .modal__email-name-container:hover {
+    background-color: var(--bk-color);
+
+    border: 1px solid var(--blue);
+ }
+
+ .modal__email-name-container:active {
+
+  border: 1px solid var(--description-dark);
+}
    
    .modal__email-name-container::placeholder {
        color: var(--light-blue); /* Задаем синий цвет для плейсхолдера */
@@ -312,3 +395,4 @@
   }
   }
   }
+}

@@ -120,6 +120,10 @@
           ru: "Рекламма",
           en: "Ads"
       },
+      services_read:{
+          ru: "Подробнее",
+          en: "Read more"
+      },
       portfolio_title: {
           ru: "Что мы делаем",
           en: "What do we do"
@@ -131,6 +135,10 @@
       portfolio_text: {
           ru: "многолетний опыт позволяет нам достигать максимальной эффективности, а результаты проектов говорят сами за себя",
           en: "all projects that we have already done , proven can help to use more comfortable, then can used by client from our business"
+      },
+      portfolio_button:{
+          ru: "Все проекты",
+          en: "See All Portfolio"
       },
       testimonials_title: {
           ru: "Что о нас говорят",

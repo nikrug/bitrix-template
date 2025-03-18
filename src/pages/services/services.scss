@@ -45,6 +45,11 @@ text-align: center;
     @include font-styles('Quicksand',700, 1rem, 1.5rem,var(--description-dark));
 }
 
+.servises__read-text{
+        @include font-styles('Quicksand',700, 1.25rem, 2.125rem,var(--light-blue));
+}
+
+
 // element
 .servises__pannel {
     display: flex;
@@ -97,12 +102,35 @@ text-align: center;
     pointer-events: none; /* Опционально, чтобы наложенное изображение не влияло на события мыши */
 }
 
+
+.read {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: start;
+    gap: 1rem;
+    height: 100px;
+    background-color: transparent; /* Прозрачный фон */
+}
+
+.read:hover * {
+    color: var(--blue);  /* Меняем цвет для текстовых элементов */
+}
+
+.read:hover svg path {
+    stroke: var(--blue);   /* Изменяем цвет для всех paths в SVG */
+
+}
+
 @media(min-width:#{$br-tablet}px) {
     .servises__text-block{
         display: flex;
     }
 
+    .read{
+        justify-content:end;
 
+    }
     
 } 
       
