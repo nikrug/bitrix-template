@@ -18,10 +18,10 @@
   &__body {
     display: grid;
     grid-template-columns: repeat(2, 1fr); /* Первоначальная настройка для мобильного */
-    gap: 36px;
-    row-gap: 36px;
-
-    white-space: nowrap;
+    //gap: 36px;
+    //row-gap: 36px;
+    row-gap: 2.3rem;
+    //white-space: nowrap;
  
     text-overflow: ellipsis;
   }
@@ -46,7 +46,7 @@
   border-bottom: none;
   display: flex;
   padding: 1rem;
-  gap: 2rem;
+  gap: 1.6rem;
 }
 
 .footer__img-box{
@@ -55,7 +55,8 @@
 
   align-items: center;
   justify-content: center;
-
+  padding: 3.5rem 0 0 0;
+  
   background-color: var(--footer-bk);
 
   border:3px solid var(--footer-bk);
@@ -106,19 +107,24 @@
 
   .footer__logo-top{
     display: grid;
-    grid-template-columns: 30% 70%;
+    grid-template-columns: 25% 68%;
   }
 
   .footer__img-box{
-    gap: 2.7rem;
+    gap: 2.8rem;
 
-    padding-top: 4.7rem;
-    padding-bottom: 1.1rem;
+    padding: 1rem 4.4rem;
   }
 
-  
+  .footer__img-block{
+    padding: 2.2rem 4rem 1rem;
+    gap: 2.8rem;
+  }
+
+
 .footer__img-box-text{
   @include font-styles('Quicksand',400, 1.125rem, 1.375rem, white);
+  padding: 0 0.3rem 5rem 1rem;
 }
 
 }

@@ -3,6 +3,19 @@
   background-color: var(--bk-color);
 }
 
+.header-drop-menu__svg:hover path{
+ stroke:var(--blue-hover);
+ cursor: pointer;
+}
+
+.header-drop-menu__svg:hover ellipse {
+  cursor: pointer;
+}
+
+.header-drop-menu__svg:hover circle{
+  cursor: pointer;
+}
+
 @media(min-width:#{$br-desktop}px){
   .header-drop-menu {
     display: none;
