@@ -65,7 +65,7 @@ text-align: center;
 
 // elements
 .about__button-white{
-    @include button-style( none, 2.375rem,var(--pure-white),1px solid var(--light-blue),1.5rem);
+    @include button-style( 9.375rem, 2.375rem,var(--pure-white),1px solid var(--light-blue),1.5rem);
     @include font-styles('Quicksand',700, .75rem, 1.125rem, var(--light-blue));
     display: flex; /* Используем флексбокс */
     flex-direction: row;

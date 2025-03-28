@@ -18,6 +18,15 @@ a:hover{
 
 }
 
+input:-internal-autofill-selected {
+  color: fieldtext;
+
+  background-color: var(--pure-black);
+  background-image: none;
+
+  appearance: menulist-button;
+}
+
 .nav-img{
   display: flex;
   flex-direction: row;
@@ -58,11 +67,11 @@ a:hover{
 @media(min-width:#{$br-desktop}px){
   .header-nav {
 
-    gap: 48px;
+    gap: 50px;
   
     justify-content: start;
 
-    padding: 2.5rem 3.5rem 3rem 1.5rem;
+    padding: 3.5rem 3rem 4rem 4rem;
 
   
     background-color: var(--pure-black);

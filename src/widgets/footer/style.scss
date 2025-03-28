@@ -18,10 +18,13 @@
   &__body {
     display: grid;
     grid-template-columns: repeat(2, 1fr); /* Первоначальная настройка для мобильного */
-    //gap: 36px;
-    //row-gap: 36px;
+
+    // gap: 36px;
+
+    // row-gap: 36px;
     row-gap: 2.3rem;
-    //white-space: nowrap;
+
+    // white-space: nowrap;
  
     text-overflow: ellipsis;
   }
@@ -43,10 +46,11 @@
 }
 
 .footer__img-block{
-  border-bottom: none;
   display: flex;
-  padding: 1rem;
   gap: 1.6rem;
+  padding: 1rem;
+
+  border-bottom: none;
 }
 
 .footer__img-box{
@@ -55,7 +59,7 @@
 
   align-items: center;
   justify-content: center;
-  padding: 3.5rem 0 0 0;
+  padding: 3.5rem 0 0;
   
   background-color: var(--footer-bk);
 
@@ -89,6 +93,7 @@
 
   .footer__img-box{
     width: 100%;
+
     border-bottom: none;
   }
 } 
@@ -117,8 +122,9 @@
   }
 
   .footer__img-block{
-    padding: 2.2rem 4rem 1rem;
     gap: 2.8rem;
+    
+    padding: 2.2rem 4rem 1rem;
   }
 
 

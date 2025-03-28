@@ -20,7 +20,7 @@
     position: relative;
     z-index: $index-1;
 
-    padding: 16px 0;
+    padding: 39px 12px 16px;
 
     background-color: var(--pure-black);
   }
@@ -57,6 +57,19 @@
     &__container {
       grid-template-columns: auto 1fr;
       justify-content: initial;
+      max-width: 1900px;
+      margin: auto;
+      
+      white-space: nowrap;
+    }
+
+    &__wrapper {
+      position: relative;
+      z-index: $index-1;
+  
+      padding: 0;
+  
+      background-color: var(--pure-black);
     }
 
     &__burger {

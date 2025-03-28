@@ -4,8 +4,9 @@
 }
 
 .header-drop-menu__svg:hover path{
+  cursor: pointer;
+  
  stroke:var(--blue-hover);
- cursor: pointer;
 }
 
 .header-drop-menu__svg:hover ellipse {
