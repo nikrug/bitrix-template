@@ -59,7 +59,7 @@ text-align: center;
     display: flex;
     flex-direction: row;
     gap:35px;
-    margin: 1rem 0 2rem;
+    margin: 2.5rem 0 2rem;
     padding-left: 10px;
 }
 
@@ -77,10 +77,22 @@ text-align: center;
     white-space: nowrap;
 }
 
+.about__button-white:hover{
+    @include font-styles('Quicksand',none, none, none, var(--blue));
+
+    background-color: var(--pure-white);
+    border-color: var(--blue);
+}
+
 .about__button-blue{
     @include button-style( 7.75rem, 2.375rem,var(--light-blue),1px solid var(--light-blue),1.5rem);
     @include font-styles('Quicksand',700, .75rem, 1.125rem, var(--pure-white));
     box-shadow: 0 4px 10px #377DFF;
+}
+
+.about__button-blue:hover{
+    background-color: var(--blue);
+    border-color: var(--blue);
 }
 
 // text

@@ -9,7 +9,7 @@ export const color = {
 export const br = {
   mobile: 360,
   tablet: 768,
-  desktop: 1024,
+  desktop: 1240,
   middle: 1360,
   max: 1920
 } as const

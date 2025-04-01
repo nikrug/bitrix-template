@@ -83,6 +83,14 @@
        box-shadow: 0 4px 10px #377DFF;
 
    }
+
+   .testimonials__button:hover{
+        @include font-styles('Quicksand',none, none, none, var(--pure-white));
+    
+        background-color: var(--blue);
+        border-color: var(--blue);
+    
+   }
    
    .pannel__show{
        display: none;

@@ -1,16 +1,15 @@
 extends @shared/layout/default/default
-include ../about/about.pug
-include ../header/header.pug
-include ../services/services.pug
-include ../portfolio/portfolio.pug
-include ../testimonials/testimonials.pug
+include ../index/modules/about/about.pug
+include ../index/modules/services/services.pug
+include ../index/modules/portfolio/portfolio.pug
+include ../index/modules/testimonials/testimonials.pug
 block variables
   -
     const title = 'Welcome to Start Template'
     const breadcrumbs = ['breadcrumbs', 'index']
 
 block content
-  +Header
+
   +About
   +services
   +portfolio

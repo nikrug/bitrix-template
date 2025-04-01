@@ -38,6 +38,13 @@
     margin: 55px 0 44px;
 }
 
+.potfolio__button:hover{
+    @include font-styles('Quicksand',none, none, none, var(--blue));
+
+    background-color: var(--pure-white);
+    border-color: var(--blue);
+}
+
    // text
    .portfolio__title-text{
        @include font-styles('Nunito',700, none, none, var(--description-dark));
@@ -54,7 +61,7 @@
    .portfolio__text{
        @include font-styles('Quicksand',400, none, none, var(--description-light));
        @include t-text;
-       margin: 1.5rem 0;
+       margin: 2.5rem 0 2rem;
    }
    
    .portfolio__image-text{

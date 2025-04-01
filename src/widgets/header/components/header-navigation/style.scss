@@ -13,9 +13,16 @@
   @include font-styles('Quicksand',400, .75rem, .9375rem, var(--description-dark));
 }
 
-a:hover{
-  font-weight: bold;
+a {
+  display: inline-block; /* Важно для применения transform */
+  
+  text-decoration: none;
+ 
+  transition: transform 0.3s ease; /* Плавный переход */
+}
 
+a:hover {
+  font-weight: +10%;
 }
 
 input:-internal-autofill-selected {

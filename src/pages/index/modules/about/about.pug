@@ -1,8 +1,8 @@
 mixin About
 
   .about__title-text-block.fade-in
-    p.about__subtitle-text(lng="about_subtitle") About Us
-    p.about__title-text(lng="about_title") Our Teammate
+    h2.about__subtitle-text(lng="about_subtitle") About Us
+    h2.about__title-text(lng="about_title") Our Teammate
 
   .about__content
     .about__text-block.fade-in
@@ -10,10 +10,10 @@ mixin About
       p.about__text(lng="about_text2") Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eu neque tempor at ut auctor maecenas, Lorem ipsum d
 
       .about__button-block
-        button.about__button-blue(lng="about_button") 
-          p About Us
-        button.about__button-white
+        button.about__button-blue(lng="about_button") About Us
+  
+        button.about__button-white(lng="about_button2")
           img(src="public/images/about/play-circle.svg")
-          p(lng="about_button2") About Us
+          div About Us
         
     img.about__img(src="public/images/about/about-pic.png")

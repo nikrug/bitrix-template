@@ -208,6 +208,14 @@ const langArr: { [key: string]: { [key: string]: string } } = {
     ru: 'Креативный директор',
     en: 'Creative Manager'
   },
+  testimonials_colaboration_title: {
+    ru: 'Хочешь работать с нами?',
+    en: 'Interesting Collaboration With Us?'
+  },
+  testimonials_colaboration_text: {
+    ru: 'Помогаем бизнесу достигать поставленых целей',
+    en: 'Help you to reach your business goal'
+  },
   testimonials_content_button: {
     ru: 'Начать проект',
     en: 'Start Project'

@@ -108,7 +108,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 1rem;
+    padding: .9rem;
     
 
     text-align: center;
@@ -167,7 +167,7 @@
 
     display: grid;
     grid-template-rows: auto;
-    grid-template-columns: 1fr 1fr; /* Две колонки, равной ширины */
+    grid-template-columns: .1fr 1fr; /* Две колонки, равной ширины */
 
     width: 99px;
     height: 53px;
@@ -206,6 +206,8 @@
 
 .txt{
    width: 100%;
+
+   text-align: left;
 
 }
 
@@ -289,7 +291,7 @@
 
     .header__button-start{
         @include button-style( 12.5625rem, 3rem,var(--light-blue),1px solid var(--light-blue),3rem);
-        @include font-styles('Quicksand',700, .75rem, 1.125rem, var(--pure-white));
+        @include font-styles('Quicksand',700, 1rem, 1.125rem, var(--pure-white));
         margin-top: 0;
         margin-bottom: 0;
    
@@ -307,12 +309,13 @@
     }
 
     .overlay2 {
-        top: 80px;
-        left: 40px;
+        top: 70px;
+        left: 0;
         z-index: 2; /* Слой, выше фона */
 
         width: 175px;
         height: 95px;
+        padding: 1rem;
 
         background-color: #fff;
 
@@ -322,13 +325,14 @@
     }
     
     .overlay3 {
-        top: 400px;
-        left: 780px;
+        top: 390px;
+        left: 785px;
         z-index: 2; /* Слой, выше фона */
 
         width: 166px;
         height: 166px;
-
+        padding: .9rem;
+        
         background-color: #fff;
         
         border: none;
