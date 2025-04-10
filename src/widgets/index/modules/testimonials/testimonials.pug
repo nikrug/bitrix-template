@@ -1,0 +1,23 @@
+mixin Testimonials
+    .testimonials
+        h2(lng="testimonials_subtitle" class="testimonials__sub-title-text fade-in") Testimonial
+        h2(lng="testimonials_title" class="testimonials__title-text fade-in") People Talk about us
+
+        
+        +slider
+
+        .testimonials__collaboration-block.fade-in
+            .testimonials__collaboration-image-block
+                img.hover-image(src="public/images/testimonials/testimonials-img-hover.png")
+                img.base-image(src="public/images/testimonials/testimonials-img.png")
+            .testimonials__collaboration-text-block.j-popup-block
+                p(lng='testimonials_colaboration_title' class="testimonials__collaboration-title-text") Interesting Collaboration With Us?
+                p(lng='testimonials_colaboration_text' class="testimonials__text") Help you to reach your business goal
+
+                
+                +PopupBlock('testimonials__button','testimonials_content_button')
+
+
+            
+            
+             

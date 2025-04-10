@@ -1,36 +1,44 @@
 export const footerBodyList = [
   {
     title: 'Terms & policies',
+    lng: 'footer_terms',
     items: [
       {
         label: 'Terms of Service',
-        link: '/'
+        link: '/',
+        lng: 'footer_service'
       },
       {
         label: 'Privacy Policy',
-        link: '/'
+        link: '/',
+        lng: 'footer_policy'
       }
 
     ]
   },
   {
     title: 'Company',
+    lng: 'footer_company',
     items: [
       {
         label: 'Home',
-        link: '/'
+        link: '/',
+        lng: 'footer_home'
       },
       {
         label: 'About Us',
-        link: '/'
+        link: '/',
+        lng: 'footer_about'
       },
       {
         label: 'Contact Us',
-        link: '/'
+        link: '/',
+        lng: 'footer_contact_us'
       }
     ]
   }, {
     title: 'Contact',
+    lng: 'footer_contact',
     items: [
       {
         label: '(+62) 893912392190',
@@ -44,6 +52,7 @@ export const footerBodyList = [
   },
   {
     title: 'Location',
+    lng: 'footer_location',
     items: [
       {
         label: 'PT Osiris Real Estate Internasional',

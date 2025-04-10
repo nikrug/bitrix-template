@@ -1,19 +1,22 @@
 export const navList = [
   {
-    link: '',
-    label: 'Home'
+    link: '/home',
+    label: 'Home',
+    lng: 'header_menu_home'
   },
   {
-    link: '',
-    label: 'About'
+    link: '/about',
+    label: 'About',
+    lng: 'header_menu_about'
   },
   {
-    link: '',
-    label: 'Services'
+    link: '/services',
+    label: 'Services',
+    lng: 'header_menu_services'
   },
   {
-  link: '',
-  label: 'Projects'
-  },
-
+    link: '/projects',
+    label: 'Projects',
+    lng: 'header_menu_projects'
+  }
 ]

@@ -2,17 +2,10 @@ mixin HeaderNavigation
     -
         const {navList} = require('./config')
     ul.header-nav
-        li
-            a(lng="header_menu_home" href="/home") Home
-        li
-            a(lng="header_menu_about" href="/about") About
-        li
-            a(lng="header_menu_services" href="/services") Sevices
-        li
-            a(lng="header_menu_projects" href="/projects") Projects
+        each item in navList
+            li
+                a(lng=item.lng href=item.link)= item.label
 
 
-        button.nav-button
-            a.btnEn.menu__text EN 
-            a.btnRu.menu__text RU  
-        +PopupBlock
+        +LangButton
+        +PopupBlock('', 'header_menu_button')

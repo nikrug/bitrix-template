@@ -14,12 +14,7 @@
     background-position: center;
    }
    
-   .testimonials__panel-block{
-    display: flex;
-    flex-direction: row;
-    gap:1rem;
-   }
-   
+
    .testimonials__collaboration-block{
        display: block;
        gap:2rem;
@@ -42,45 +37,48 @@
    }
 
    // elements
-   .testimonials__pannel{
-      display: block;
-      grid-template-columns: repeat(2, 1fr);
-
-      max-width: 21.875rem;
-      padding: 2rem 2rem 2rem 3rem;
-
-      text-align: left;
-
-      background-color: var(--testimonil-card-bk);
-      border:1px solid var(--testimonil-card-border);
-      border-radius: 1rem;
-   }
-
-   .testimonials__pannel-image{
-    display: flex;
-    flex-direction: row;
-    gap:2.2rem;
-    margin:0.2rem 0 2rem;
-   }
-   
    .testimonials__image{
     width: 4.375rem;
     height: 4.375rem;
     }
    
-   .testimonials__pannel-title-block{
-    margin:1rem 0;
-    
-    text-align: left;
-   }
 
    .testimonials__button{
-       @include button-style( 9.375rem, 2.375rem,var(--light-blue),1px solid var(--light-blue),1.5rem);
-       @include font-styles('Quicksand',700, .75rem, 1.125rem, var(--pure-white));
-
-       text-align: center;
-
-       box-shadow: 0 4px 10px #377DFF;
+        position: relative;
+      
+        display: block;
+        align-content: center;
+        width: 340px;
+        height: 44px;
+        margin-right: 0;
+        
+        padding: 0;
+      
+        --bg: var(--light-blue);
+        color: var(--light-blue);
+      
+        line-height: 120%;
+        text-align: center;
+      
+        background: var(--bg, $color-red);
+      
+        border:1px solid var(--light-blue);
+        border-radius: 24px;
+      
+        @include font-styles('Quicksand',700, 16px, 24px, var(--pure-white));
+      
+        transition: background-color .15s ease;
+      
+        @include hover {
+          border-color:var(--blue);
+      
+          @include font-styles('Quicksand',700, 16px, 24px, var(--pure-white));
+      
+        }
+      
+        @include mobile-active {
+          --bg: var(--blue);
+        }
 
    }
 
@@ -92,52 +90,10 @@
     
    }
    
-   .pannel__show{
-       display: none;
-   }
-
-   .pannel__show-tablet{
-    display: none;
-
-    }
-   
    .base-image {
     display: block;
    }
 
-   .slider {
-    position: relative;
-
-    width: 100%;
-    overflow: hidden; // Это предотвращает показ элементов, выходящих за пределы слайдера
-    
-    background-color: var(--pure-black);
-    
-    .slider-wrapper {
-        display: flex;
-        flex-direction: row;
-
-        background-color: var(--pure-black);
-        
-        transition: transform 0.5s ease-in-out;
-    }
-
-    .slider-item {
-        display: flex;
-        flex-direction: row;
-        gap: 3rem;
-        align-items: center;
-        justify-content: center;
-        box-sizing: border-box;
-        min-width: 100%; // Каждый слайд занимает 100% ширины
-
-        text-align: center;
-
-        background-color: var(--pure-black);
-    }
-
-
-    }
 
    .hover-image {
        position: absolute; /* Абсолютное позиционирование для наложенной картинки */
@@ -164,14 +120,6 @@
        @include t-text;
    }
    
-   .testimonials__pannel-title-text{
-       @include font-styles('Quicksand',600, 1.125rem, 1.375rem, var(--light-blue));
-   }
-   
-   .testimonials__pannel-subtitle-text{
-       @include font-styles('Quicksand',400,.6875rem, .8125rem, var(--description-light));
-   }
-   
    .testimonials__button-text{
        @include font-styles('Quicksand',700, .75rem, 1.125rem, var(--pure-white));
    }
@@ -181,10 +129,6 @@
    }
    
    @media(min-width:#{$br-tablet}px) {
-       .pannel__show-tablet{
-          display: block;
-       }
-   
        .testimonials__collaboration-block{
            display: flex;
            flex-direction: row-reverse;
@@ -202,14 +146,6 @@
    } 
          
    @media(min-width:#{$br-desktop}px){
-       .testimonials__pannel-title-text{
-           @include font-styles('Quicksand',600, 1.25rem, 2.125rem, var(--light-blue));
-       }
-       
-       .testimonials__pannel-subtitle-text{
-           @include font-styles('Quicksand',400,.6875rem, 2.125rem, var(--description-light));
-       }
-       
        .testimonials__button-text{
            @include font-styles('Quicksand',700, 1rem, 1.5rem, var(--pure-white));
        }
@@ -234,16 +170,6 @@
     
         background-color: var(--pure-black);
        }   
-
-       .testimonials__pannel{
-
-  
-        max-width: 23.75rem;
-        max-height: 20.9375rem;
-        
-  
-
-     }
 
      .base-image {
         display: block;
@@ -290,11 +216,4 @@
         margin-bottom: 0;
     }
 
-    .testimonials__pannel-image{
-        margin: 1rem 0 0.1rem;
-    }
-
-    .pannel__show{
-        display: block;
-    }
    }

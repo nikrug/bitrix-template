@@ -34,6 +34,7 @@ input:-internal-autofill-selected {
   appearance: menulist-button;
 }
 
+
 .nav-img{
   display: flex;
   flex-direction: row;
@@ -45,7 +46,10 @@ input:-internal-autofill-selected {
 }
 
 .nav-button{
-  width: 3rem;
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  width: 4rem;
   margin: 1.5rem 0 5.4rem;
 
 }

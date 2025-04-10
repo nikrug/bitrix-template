@@ -7,8 +7,3 @@ mixin Button(props)
             type: attributes.type
         };
 
-    #{Tag}.simple-btn&attributes(tagAttributes)
-        if attributes.lng
-            != attributes.lng
-        else
-            block

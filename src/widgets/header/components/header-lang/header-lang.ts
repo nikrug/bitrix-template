@@ -72,6 +72,14 @@ const langArr: { [key: string]: { [key: string]: string } } = {
     ru: 'Создаем креативные стратегии, которые помогают вашему бизнесу достигать поставленных целей. Используем широкий спектр приемов для генерации уникального и интересного контента.',
     en: 'We move with a creative strategy to help your business goal. We help to improve your income with the services we have, making your content look interesting and appealing to potential customers.'
   },
+  about_button: {
+    ru: 'О нас',
+    en: 'About Us'
+  },
+  about_button2: {
+    ru: 'История компании',
+    en: 'Our story'
+  },
   services_title: {
     ru: 'Эффективные приемы',
     en: 'Perfect and Fast Movement'
@@ -260,49 +268,50 @@ const langArr: { [key: string]: { [key: string]: string } } = {
 
 // Language settings
 const allLang = ['en', 'ru']
-const btnRu = document.querySelector('.btnRu') as HTMLButtonElement | null
-const btnEn = document.querySelector('.btnEn') as HTMLButtonElement | null
 
-if (btnRu) {
-  btnRu.addEventListener('click', function () {
-    changeLanguage('ru')
+// Функция для добавления обработчиков событий для кнопок
+function setupLanguageButtons () {
+  const languageButtons = document.querySelectorAll('.language-button') as NodeListOf<HTMLButtonElement>
+
+  languageButtons.forEach((button) => {
+    button.addEventListener('click', function () {
+      const lang = button.getAttribute('data-lang')
+      if (lang && allLang.includes(lang)) {
+        changeLanguage(lang)
+      } else {
+        console.error('Язык не поддерживается: ' + lang)
+      }
+    })
   })
-} else {
-  console.error('Кнопка для русского языка не найдена.')
 }
 
-if (btnEn) {
-  btnEn.addEventListener('click', function () {
-    changeLanguage('en')
-  })
-} else {
-  console.error('Кнопка для английского языка не найдена.')
-}
-
+// Функция смены языка
 function changeLanguage (lang: string) {
-  // Save the language in the URL
+  // Сохранить язык в URL
   location.hash = lang
 
-  // Update the text on the page
+  // Обновить текст на странице
   updateText(lang)
 
-  // Update testimonials text
-  updateTestimonialsText(lang) // Call the function to update testimonials
+  // Обновить текст отзывов
+  updateTestimonialsText(lang)
 }
 
+// Функция инициализации языка
 function initializeLanguage () {
   let hash = window.location.hash.substring(1)
 
-  // If the language is not supported, set to default
+  // Если язык не поддерживается, установите по умолчанию
   if (!allLang.includes(hash)) {
-    hash = 'ru' // Default to Russian
-    location.hash = hash // Update hash for proper display
+    hash = 'ru' // По умолчанию русский
+    location.hash = hash // Обновляем хэш для корректного отображения
   }
 
   updateText(hash)
-  updateTestimonialsText(hash) // Update testimonials text when initializing
+  updateTestimonialsText(hash) // Обновляем текст отзывов при инициализации
 }
 
+// Функция обновления текста на странице
 function updateText (lang: string) {
   document.querySelector('title')!.innerHTML = langArr.unit[lang]
 
@@ -314,17 +323,15 @@ function updateText (lang: string) {
   }
 }
 
+// Функция обновления текста отзывов
 function updateTestimonialsText (lang: string) {
-  // Get all testimonials elements
   const testimonials = document.querySelectorAll('.testimonials__pannel')
 
   testimonials.forEach((panel, index) => {
-    // Get title, subtitle, and text
     const title = panel.querySelector('.testimonials__pannel-title-text') as HTMLElement | null
     const subtitle = panel.querySelector('.testimonials__pannel-subtitle-text') as HTMLElement | null
     const text = panel.querySelector('.testimonials__text') as HTMLElement | null
 
-    // Use (index + 1) for langArr indexing as it starts from 1
     if (title && langArr[`testimonials_pannel_title${index + 1}`]) {
       title.innerHTML = langArr[`testimonials_pannel_title${index + 1}`][lang] || title.innerHTML
     }
@@ -339,39 +346,8 @@ function updateTestimonialsText (lang: string) {
   })
 }
 
-// Initialize language
-initializeLanguage()
-
-const slides = document.querySelectorAll('.slider-item') as NodeListOf<HTMLElement>
-const sliderWrapper = document.querySelector('.slider-wrapper') as HTMLElement
-
-let currentSlide = 0
-const totalSlides = slides.length - 1 // Exclude duplicate when counting
-const slideInterval = 3000 // Set the interval time
-
-function showSlide (index: number) {
-  sliderWrapper.style.transform = `translateX(-${index * 100}%)`
-}
-
-function startInterval () {
-  setInterval(() => { // Remove intervalId if not needed
-    currentSlide++
-
-    if (currentSlide > totalSlides) {
-      // Temporarily remove transition to avoid "jump"
-      sliderWrapper.style.transition = 'none'
-      sliderWrapper.style.transform = 'translateX(0%)'
-      setTimeout(() => {
-        currentSlide = 1 // Move to first slide (duplicate)
-        sliderWrapper.style.transition = 'transform 1.1s ease-in-out' // Re-enable transition
-        showSlide(currentSlide)
-      }, 50) // Small delay for styles
-    } else {
-      sliderWrapper.style.transition = 'transform 1.1s ease-in-out' // Set smooth transition
-      showSlide(currentSlide)
-    }
-  }, slideInterval)
-}
-// Start the slider
-showSlide(currentSlide)
-startInterval()
+// Инициализация языка и установка кнопок
+document.addEventListener('DOMContentLoaded', function () {
+  initializeLanguage()
+  setupLanguageButtons() // Установка кнопок должна быть после инициализации
+})

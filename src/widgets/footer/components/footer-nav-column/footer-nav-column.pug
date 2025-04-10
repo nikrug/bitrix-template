@@ -1,8 +1,11 @@
 mixin FooterNavColumn (data)
-    -
-        const {title, items} = data || {}
+    - const { title, lng, items } = data || { title: '', lng: '', items: [] } 
+
     .footer-nav-column(class=attributes.class)
-        h5.footer-nav-column__title=title
+        h5.footer-nav-column__title(lng=lng)= title  
         .footer-nav-column__body
-            each item in items
-                a.footer-nav-column__link(href=item.link)=item.label
+            if items && items.length
+                each item in items
+                    a.footer-nav-column__link(lng=item.lng href=item.link)= item.label
+                else
+                    p Нет доступных ссылок.
