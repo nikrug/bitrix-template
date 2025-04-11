@@ -226,7 +226,7 @@ const langArr: { [key: string]: { [key: string]: string } } = {
   },
   testimonials_content_button: {
     ru: 'Начать проект',
-    en: 'Start Project'
+    en: 'Get Started'
   },
   footer_terms: {
     ru: 'Условия',

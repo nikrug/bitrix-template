@@ -31,3 +31,23 @@
     --svg-header:#E2E2E2;
     --blue-hover:#000;
 }
+
+
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bk-color: #000;
+        --pure-white: #0D0D0D;
+        --pure-black: #000;
+        --light-blue: #E2E2E2;
+        --blue: #E2E2E2;
+        --description-dark: #E2E2E2;
+        --description-light: #E2E2E2;
+        --panel-border: #FFFFFF1A;
+        --testimonil-card-bk: #0B0F15;
+        --testimonil-card-border: #0B0F15;
+        --button-shadow: #377DFF;
+        --svg-header: #E2E2E2;
+        --blue-hover: #000;
+    }
+}

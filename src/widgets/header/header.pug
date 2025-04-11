@@ -33,7 +33,8 @@ mixin Controller
             div.header__title-text(lng="header_title") Make your dream business goal come true
             .header__text-block
                 p.header__title-text-gray(lng="header_text") when you need us for improve your business, then come with us to help your business have reach it, you just sit and feel that goal.
-                button.header__button-start.style-button(lng="header_content_button") Start Project
+                +PopupBlock('header__button-start','header_content_button')
+                
                                  
             .image-container
                 img.header__image.overlay-image(src="public/images/header/header-bk.png")  

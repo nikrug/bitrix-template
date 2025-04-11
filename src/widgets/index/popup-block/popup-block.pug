@@ -1,8 +1,8 @@
-mixin PopupBlock(buttonClass = 'popup-block__button', lngKey = '')
+mixin PopupBlock(buttonClass = '', lngKey = '')
     section.popup-block.j-popup-block
         .popup-block__actions
             .popup-block__button
-                button.simple-btn.j-example-popup-button(class= buttonClass)
+                button.j-example-popup-button(class= buttonClass)
                     p(lng= lngKey)
         include components/example-popup/example-popup
         include components/example-popup-two/example-popup-two

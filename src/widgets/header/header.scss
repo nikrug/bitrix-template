@@ -83,21 +83,50 @@
     @include font-styles('Nunito',400, .3125rem,.4263rem,#1d1d1d);
 }
 
-
 .header__button-start{
-    z-index: 1;
+    position: relative;
+  
+    display: block;
+    align-content: center;
+    width: 240px;
+    height: 44px;
+    margin-right: 0;
+    
+    padding: 0;
 
-    padding: 0.5rem 0;
-
-    @include button-style( 9rem, 2.375rem,var(--light-blue),1px solid var(--light-blue),3rem);
-    @include font-styles('Quicksand',700, .75rem, 1.125rem, var(--pure-white));
+    color: var(--light-blue);
+  
+    line-height: 120%;
+    text-align: center;
+  
+    background: var(--bg, $color-red);
+  
+    border:1px solid var(--light-blue);
+    border-radius: 24px;
     box-shadow: 0 4px 10px #377DFF;
+  
+    transition: background-color .15s ease;
+  
+    --bg: var(--light-blue);
+  
+    @include font-styles('Quicksand',700, 16px, 24px, var(--pure-white));
+  
+    @include hover {
+      border-color:var(--blue);
+  
+      @include font-styles('Quicksand',700, 16px, 24px, var(--pure-white));
+  
+    }
+  
+    @include mobile-active {
+      --bg: var(--blue);
+    }
 
 }
 
-
 .header__button-start:hover{
-    @include button-style( 9rem, 2.375rem,var(--blue),1px solid var(--blue),3rem);
+    background-color: var(--blue);
+    border-color: var(--blue);
 
 }
 
@@ -294,8 +323,6 @@
         @include font-styles('Quicksand',700, 1rem, 1.125rem, var(--pure-white));
         margin-top: 0;
         margin-bottom: 0;
-   
-        padding: 0.8rem 0;
     }
 
     .header__button-start:hover{
