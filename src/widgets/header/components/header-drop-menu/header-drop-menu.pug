@@ -1,6 +1,12 @@
 mixin HeaderDropMenu
     .header-drop-menu
-        +HeaderNavigation
+        ul.header-nav
+         a(href='',lng='header_menu_home_drop') Home
+         a(href='',lng='header_menu_about_drop') About
+         a(href='',lng='header_menu_services_drop') Services
+         a(href='',lng='header_menu_projects_drop') Projects
+         +LangButton
+         +PopupBlock('simple-btn', 'header_menu_button_drop')
         .nav-img
             a(href="/facebook")
                 <svg class='header-drop-menu__svg'  width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">

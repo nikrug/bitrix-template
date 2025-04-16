@@ -28,6 +28,26 @@ const langArr: { [key: string]: { [key: string]: string } } = {
     ru: 'Написать нам',
     en: 'Contact us'
   },
+  header_menu_home_drop: {
+    ru: 'Главная',
+    en: 'Home'
+  },
+  header_menu_about_drop: {
+    ru: 'О нас',
+    en: 'About'
+  },
+  header_menu_services_drop: {
+    ru: 'Услуги',
+    en: 'Services'
+  },
+  header_menu_projects_drop: {
+    ru: 'Проекты',
+    en: 'Projects'
+  },
+  header_menu_button_drop: {
+    ru: 'Написать нам',
+    en: 'Contact us'
+  },
   header_title: {
     ru: 'Помогаем бизнесу достигать поставленных целей',
     en: 'Make your dream business goal come true'
