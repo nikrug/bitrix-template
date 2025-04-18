@@ -3,16 +3,18 @@ mixin portfolio
         div.portfolio__sub-title-text.fade-in(lng="portfolio_subtitle") Our Portfolio
         div.portfolio__title-text.fade-in(lng="portfolio_title") What do we do
         p.portfolio__text.fade-in(lng="portfolio_text") All projects that we have already done, proven can help to use more comfortably, then can be used by clients from our business.
-
+        div.portfolio__image-container
+            img.portfolio__overlay-image-1(src="public/images/portfolio/portfolio-dots.svg")
+            img.portfolio__overlay-image-2(src="public/images/portfolio/portfolio-dots.svg")
         div.portfolio__image-blocks.fade-in
                 div.portfolio__image-block
                     div.portfolio__image
-                        img.header__image(src="public/images/portfolio/furniture.png", alt="Design Furniture App")
+                        img(src="public/images/portfolio/furniture.png", alt="Design Furniture App")
                         div.portfolio__image-text.fade-in Design Furniture App
 
                 div.portfolio__image-block
                     div.portfolio__image
-                        img.header__image(src="public/images/portfolio/cloud.png", alt="Cloud App")
+                        img(src="public/images/portfolio/cloud.png", alt="Cloud App")
                         div.portfolio__image-text.fade-in Cloud App
 
                 div.portfolio__image-block

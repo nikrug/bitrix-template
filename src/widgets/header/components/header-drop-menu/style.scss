@@ -1,6 +1,11 @@
 .header-drop-menu {
+  height: 100%;
 
   background-color: var(--bk-color);
+}
+
+.header__link-width{
+  width: 60px;
 }
 
 .header-drop-menu__svg:hover path{

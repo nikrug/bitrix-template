@@ -76,6 +76,15 @@
 
        border-radius: 5px; /* Скругление углов */
    }
+
+   
+   .portfolio__overlay-image-1{
+    display: none;
+}
+
+.portfolio__overlay-image-2{
+    display: none;
+}
    
    
    @media(min-width:#{$br-tablet}px) {
@@ -88,6 +97,14 @@
         padding: 0;
 
 
+    }
+
+    .portfolio__overlay-image-1{
+        display: none;
+    }
+
+    .portfolio__overlay-image-2{
+        display: none;
     }
    } 
          
@@ -127,8 +144,6 @@
 
        .portfolio__image-block img {
         display: flex;
-        width: 1500px; 
-        height: 400px;  
        }
 
        .potfolio__button{
@@ -141,6 +156,28 @@
         .portfolio__text{
             width: 700px;
             margin: .6rem 0;
+        }
+
+        .portfolio__overlay-image-1{
+            position: absolute;
+            top: 100px;
+            right: 90px;
+            z-index: 0;
+
+            display: block;
+        }
+    
+        .portfolio__overlay-image-2{
+            position: absolute;
+            bottom: 10px;
+            left: 400px;
+            z-index: 0;
+
+            display: block;
+        }
+    
+        .portfolio__image-container{
+            position: relative; /* Устанавливаем относительное позиционирование для контейнера */  
         }
    
    }

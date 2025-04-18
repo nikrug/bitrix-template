@@ -103,7 +103,7 @@ text-align: center;
 }
 
 
-.read {
+.servises__read {
     display: flex;
     flex-direction: row;
     gap: .6rem;
@@ -115,12 +115,25 @@ text-align: center;
     background-color: transparent; /* Прозрачный фон */
 }
 
-.read:hover * {
-    color: var(--blue);  /* Меняем цвет для текстовых элементов */
+.servises__read-block{
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
 }
 
-.read:hover svg path {
+
+.servises__read-block:hover svg path {
+    color: var(--blue);  /* Меняем цвет для текстовых элементов */
+
     stroke: var(--blue);   /* Изменяем цвет для всех paths в SVG */
+
+}
+
+.servises__read-block:hover{
+    .servises__read-text{
+        @include font-styles('Quicksand',none, none, none,var(--blue));
+}
 
 }
 
@@ -129,7 +142,7 @@ text-align: center;
         display: flex;
     }
 
-    .read{
+    .servises__read{
         justify-content:end;
 
     }
@@ -179,7 +192,7 @@ text-align: center;
     }
 
 
-    .read{
+    .servises__read{
         gap: 1rem;
         height: 100px;
     }

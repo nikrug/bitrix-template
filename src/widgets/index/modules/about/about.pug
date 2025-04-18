@@ -1,23 +1,25 @@
 mixin About
+  div.about
+    .about__title-text-block.fade-in
+      h2.about__subtitle-text(lng="about_subtitle") About Us
+      h2.about__title-text(lng="about_title") Our Teammate
 
-  .about__title-text-block.fade-in
-    h2.about__subtitle-text(lng="about_subtitle") About Us
-    h2.about__title-text(lng="about_title") Our Teammate
+    .about__content
+      .about__text-block.fade-in
+        p.about__text(lng="about_text") We move with make a Creative Strategy for help your business goal, we help to improve your income by a services we have. make your content look interesting and make people look for your business2
+        p.about__text(lng="about_text2") Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eu neque tempor at ut auctor maecenas, Lorem ipsum d
 
-  .about__content
-    .about__text-block.fade-in
-      p.about__text(lng="about_text") We move with make a Creative Strategy for help your business goal, we help to improve your income by a services we have. make your content look interesting and make people look for your business2
-      p.about__text(lng="about_text2") Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eu neque tempor at ut auctor maecenas, Lorem ipsum d
-
-      .about__button-block
-        a(href="/project" )
-          button.about__button-blue(lng="about_button")
-        a(href="/project" )
-          button.about__button-white
-            <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M8.4987 14.8966C12.1806 14.8966 15.1654 11.9118 15.1654 8.2299C15.1654 4.548 12.1806 1.56323 8.4987 1.56323C4.8168 1.56323 1.83203 4.548 1.83203 8.2299C1.83203 11.9118 4.8168 14.8966 8.4987 14.8966Z" stroke="var(--light-blue)" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M7.16797 5.56323L11.168 8.2299L7.16797 10.8966V5.56323Z" stroke="var(--light-blue)" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>  
-            div(lng="about_button2") About Us
-        
-    img.about__img(src="public/images/about/about-pic.png")
+        .about__button-block
+          a(href="/project" )
+            button.about__button-blue(lng="about_button")
+          a(href="/project" )
+            button.about__button-white
+              <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M8.4987 14.8966C12.1806 14.8966 15.1654 11.9118 15.1654 8.2299C15.1654 4.548 12.1806 1.56323 8.4987 1.56323C4.8168 1.56323 1.83203 4.548 1.83203 8.2299C1.83203 11.9118 4.8168 14.8966 8.4987 14.8966Z" stroke="var(--light-blue)" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M7.16797 5.56323L11.168 8.2299L7.16797 10.8966V5.56323Z" stroke="var(--light-blue)" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>  
+              div(lng="about_button2") About Us
+      div.about__image-container
+        img.about__overlay-image-1(src="public/images/about/about-dots-orange.svg")
+        img.about__overlay-image-2(src="public/images/about/about-dots-purple.svg")
+      img.about__img(src="public/images/about/about-pic.png")

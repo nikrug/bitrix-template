@@ -41,7 +41,7 @@
     width: 4.375rem;
     height: 4.375rem;
     }
-   
+
 
    .testimonials__button{
         position: relative;
@@ -127,6 +127,22 @@
    .testimonials__collaboration-title-text{
        @include font-styles('Nunito',700, 1.75rem, 2.25rem, var(--description-dark));
    }
+
+   .testimonials__overlay-image-1{
+    display: none;
+    }
+
+    .testimonials__overlay-image-2{
+        display: none;
+    }
+
+    .testimonials__overlay-image-3{
+        display: none;
+    }
+
+    .testimonials__overlay-image-4{
+        display: none;
+    }
    
    @media(min-width:#{$br-tablet}px) {
        .testimonials__collaboration-block{
@@ -143,6 +159,23 @@
 
             text-align: left;
        }
+
+       .testimonials__overlay-image-1{
+        display: none;
+        }
+
+        .testimonials__overlay-image-2{
+            display: none;
+        }
+
+        .testimonials__overlay-image-3{
+            display: none;
+        }
+
+        .testimonials__overlay-image-4{
+            display: none;
+        }
+
    } 
          
    @media(min-width:#{$br-desktop}px){
@@ -182,6 +215,7 @@
         position: absolute; /* Абсолютное позиционирование для наложенной картинки */
         top: 16%;
         left: 15%;
+        z-index: 1;
 
         width: 325px;
         height: 288px;
@@ -216,6 +250,46 @@
         margin-bottom: 0;
     }
 
+    .testimonials__overlay-image-1{
+        position: absolute;
+        right: 321px;
+        bottom: 351px;
+        z-index: 0;
+
+        display: block;
+    }
+
+    .testimonials__overlay-image-2{
+        position: absolute;
+        top: 10px;
+        left: 321px;
+        z-index: 0;
+
+        display: block;
+    }
+
+    .testimonials__overlay-image-3{
+        position: absolute;
+        right: 511px;
+        bottom: 170px;
+        z-index: 0;
+
+        display: block;
+    }
+
+    .testimonials__overlay-image-4{
+        position: absolute;
+        top: -10px;
+        left: 121px;
+        z-index: 0;
+
+        display: block;
+    }
+
+
+    .testimonials__image-container{
+        position: relative; /* Устанавливаем относительное позиционирование для контейнера */  
+    }
 
 
 

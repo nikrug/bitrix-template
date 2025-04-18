@@ -63,24 +63,24 @@
 }
 
 .welcome__overlay1-title{
-    @include font-styles('Nunito',700, .75rem,1rem,#1d1d1d);
+    @include font-styles('Nunito',700, .75rem,1rem,var(--description-dark));
 }
 
 .welcome__overlay1-subtitle{
-    @include font-styles('Quicksand',700, .375rem,.4688rem,#464646);
+    @include font-styles('Quicksand',700, .375rem,.4688rem,var(--description-light));
 }
 
 .welcome__overlay2-title{
-    @include font-styles('Quicksand',600, .3125rem,.375rem,#1d1d1d);
+    @include font-styles('Quicksand',600, .3125rem,.375rem,var(--description-dark));
     padding-top: 0.5rem;
 }
 
 .welcome__overlay2-subtitle{
-    @include font-styles('Quicksand',600, .1875rem,.2344rem,#464646);
+    @include font-styles('Quicksand',600, .1875rem,.2344rem,var(--description-light));
 }
 
 .welcome__overlay2-text{
-    @include font-styles('Nunito',400, .3125rem,.4263rem,#1d1d1d);
+    @include font-styles('Nunito',400, .3125rem,.4263rem,var(--description-dark));
 }
 
 .welcome__button-start{
@@ -202,9 +202,9 @@
     height: 53px;
     padding: 0.5rem;
 
-    background-color: #fff;
+    background-color: var(--pure-white);
     
-    border: 1px solid #fff;
+    border: 1px solid var(--pure-white);
     border-radius:6px ;
     box-shadow: 0 4px 10px #000;
 }
@@ -222,9 +222,9 @@
     height: 80px;
     padding: 0.5rem;
 
-    background-color: #fff;
+    background-color: var(--pure-white);
 
-    border: 1px solid #fff;
+    border: 1px solid var(--pure-white);
     border-radius:6px ;
     box-shadow: 0 4px 10px #000;
 }
@@ -266,23 +266,23 @@
     }
     
     .welcome__overlay1-title{
-        @include font-styles('Nunito',700, 1.5rem,2rem,#1d1d1d);
+        @include font-styles('Nunito',700, 1.5rem,2rem,var(--description-dark));
     }
     
     .welcome__overlay1-subtitle{
-        @include font-styles('Quicksand',700, .75rem,.9375rem,#464646);
+        @include font-styles('Quicksand',700, .75rem,.9375rem,var(--description-light));
     }
     
     .welcome__overlay2-title{
-        @include font-styles('Quicksand',600, .625rem,.75rem,#1d1d1d);
+        @include font-styles('Quicksand',600, .625rem,.75rem,var(--description-dark));
     }
     
     .welcome__overlay2-subtitle{
-        @include font-styles('Quicksand',600, .375rem,.4688rem,#464646);
+        @include font-styles('Quicksand',600, .375rem,.4688rem,var(--description-light));
     }
     
     .welcome__overlay2-text{
-        @include font-styles('Nunito',400, .625rem,.8125rem,#1d1d1d);
+        @include font-styles('Nunito',400, .625rem,.8125rem,var(--description-dark));
     }
     
     .underlay1{
@@ -344,7 +344,7 @@
         height: 95px;
         padding: 1rem;
 
-        background-color: #fff;
+        background-color: var(--pure-white);
 
         border: none;
         border-radius:16px ;
@@ -360,7 +360,7 @@
         height: 166px;
         padding: .9rem;
         
-        background-color: #fff;
+        background-color: var(--pure-white);
         
         border: none;
         border-radius:16px ;
