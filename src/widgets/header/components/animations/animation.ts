@@ -106,55 +106,91 @@ function checkVisibility () {
   })
 }
 
-// Get all necessary elements by classes
-const nameInput = document.querySelector('.name-input') as HTMLInputElement
-const emailInput = document.querySelector('.email-input') as HTMLInputElement
-const messageInput = document.querySelector('.message-input') as HTMLTextAreaElement
+document.addEventListener('DOMContentLoaded', () => {
+  // Get all necessary elements by classes
+  const nameInput = document.querySelector('.name-input') as HTMLInputElement
+  const emailInput = document.querySelector('.email-input') as HTMLInputElement
+  const messageInput = document.querySelector('.message-input') as HTMLTextAreaElement
 
-// Get containers for adding error class
-const nameContainer = document.querySelector('.name-container') as HTMLElement
-const emailContainer = document.querySelector('.email-container') as HTMLElement
-const messageContainer = document.querySelector('.message-container') as HTMLElement
+  // Get containers for adding error class
+  const nameContainer = document.querySelector('.name-container') as HTMLElement
+  const emailContainer = document.querySelector('.email-container') as HTMLElement
+  const messageContainer = document.querySelector('.message-container') as HTMLElement
 
-// Get corresponding labels
-const nameLabel = nameContainer.querySelector('label') as HTMLLabelElement
-const emailLabel = emailContainer.querySelector('label') as HTMLLabelElement
-const messageLabel = messageContainer.querySelector('label') as HTMLLabelElement
+  // Get corresponding labels
+  const nameLabel = nameContainer.querySelector('label') as HTMLLabelElement
+  const emailLabel = emailContainer.querySelector('label') as HTMLLabelElement
+  const messageLabel = messageContainer.querySelector('label') as HTMLLabelElement
 
-// Example of validation function
-function validateInputs () {
-  // Check for name
-  if (nameInput.value.trim() === '') {
-    nameContainer.classList.add('error')
-    nameLabel.classList.add('error')
-  } else {
-    nameContainer.classList.remove('error')
+  // Get the submit button
+  const submitButton = document.querySelector('.submit-button') as HTMLButtonElement
+
+  // Validation function
+  function validateInputs (): void {
+    let isValid = true
+
+    // Check for name
+    if (nameInput.value.trim() === '') {
+      nameContainer.classList.add('error')
+      nameLabel.classList.add('error')
+      isValid = false
+    } else {
+      nameContainer.classList.remove('error')
+      nameLabel.classList.remove('error')
+    }
+
+    // Check for email
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    if (!emailRegex.test(emailInput.value)) {
+      emailContainer.classList.add('error')
+      emailLabel.classList.add('error')
+      isValid = false
+    } else {
+      emailContainer.classList.remove('error')
+      emailLabel.classList.remove('error')
+    }
+
+    // Check for message
+    if (messageInput.value.trim() === '') {
+      messageContainer.classList.add('error')
+      messageLabel.classList.add('error')
+      isValid = false
+    } else {
+      messageContainer.classList.remove('error')
+      messageLabel.classList.remove('error')
+    }
+
+    // Enable or disable the submit button based on validity
+    submitButton.disabled = !isValid
   }
 
-  // Check for email
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-  if (!emailRegex.test(emailInput.value)) {
-    emailContainer.classList.add('error')
-    emailLabel.classList.add('error')
-  } else {
-    emailContainer.classList.remove('error')
-    emailLabel.classList.remove('error')
-  }
+  // Bind validation function to input events
+  nameInput.addEventListener('input', validateInputs)
+  emailInput.addEventListener('input', validateInputs)
+  messageInput.addEventListener('input', validateInputs)
 
-  // Check for message
-  if (messageInput.value.trim() === '') {
-    messageContainer.classList.add('error')
-    messageLabel.classList.add('error')
-  } else {
-    messageContainer.classList.remove('error')
-    messageLabel.classList.remove('error')
-  }
-}
+  // Handle form submission
+  submitButton.addEventListener('click', (event: MouseEvent) => {
+    event.preventDefault()
 
-// Bind validation function to input events
-nameInput.addEventListener('input', validateInputs)
-emailInput.addEventListener('input', validateInputs)
-messageInput.addEventListener('input', validateInputs)
+    if (submitButton.disabled) {
+      return // Prevent submission if the button is disabled
+    }
+
+    // Process the validated form data
+    console.log('Form submitted with:', {
+      name: nameInput.value,
+      email: emailInput.value,
+      message: messageInput.value
+    })
+
+    // Optionally: Clear inputs
+    nameInput.value = ''
+    emailInput.value = ''
+    messageInput.value = ''
+    validateInputs() // Re-validate to reset the button state
+  })
+})
 
 // Check visibility of elements on scroll
 window.addEventListener('scroll', checkVisibility)

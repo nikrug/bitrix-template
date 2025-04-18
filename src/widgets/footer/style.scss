@@ -9,6 +9,7 @@
     display: grid;
     grid-template-rows: 1;
     gap: 0;
+
   }
 
   &__copy {
@@ -108,6 +109,11 @@
   /* Убираем правило для размещения дополнительных блоков в первую колонну */
   .footer__column:nth-child(n+3) {
     grid-column: span 1; /* Размещаем все блоки так же, как и первые два */
+  }
+
+  .footer__container{
+    max-width: 1900px;
+    margin: auto;
   }
 
   .footer__logo-top{

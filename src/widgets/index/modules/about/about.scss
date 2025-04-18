@@ -43,6 +43,8 @@ text-align: center;
 }
 
 .about__img{
+    z-index: 1;
+
     width: 340px;
 }
 
@@ -123,10 +125,15 @@ text-align: center;
     display: none;
 }
 
-.about__overlay-image-2{
-    display: none;
-}
 
+.about__overlay-image-2{
+    position: absolute;
+    top: 330px;
+    right: 260px;
+    z-index: 0;
+
+    display: block;
+}
 
 @media (min-width: #{$br-tablet}px) {
     .about__content{
@@ -191,7 +198,7 @@ text-align: center;
     .about__overlay-image-1{
         position: absolute;
         right: 510px;
-        bottom: 130px;
+        bottom: 145px;
         z-index: 0;
 
         display: block;

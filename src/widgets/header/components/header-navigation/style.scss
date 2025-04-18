@@ -41,7 +41,7 @@ input:-internal-autofill-selected {
   gap:1.5rem;
   align-items: center;
   justify-content: center;
-  
+
   margin: 10rem 0;
 
 }
@@ -53,6 +53,10 @@ input:-internal-autofill-selected {
   width: 4rem;
   margin: 1.5rem 0 5.4rem;
 
+}
+
+.language-button{
+  @include font-styles('Quicksand',400, .75rem, .9375rem, var(--description-dark));
 }
 
 @media(min-width:#{$br-desktop}px){
@@ -77,6 +81,10 @@ input:-internal-autofill-selected {
 }
  
 @media(min-width:#{$br-desktop}px){
+  .language-button{
+    @include font-styles('Quicksand',400, 1.125rem, 1.5rem, var(--description-dark));
+  }
+
   .header-nav {
 
     gap: 50px;
