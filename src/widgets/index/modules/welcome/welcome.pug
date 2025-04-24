@@ -1,10 +1,16 @@
 mixin Welcome   
     .welcome__content.fade-in
-        div.balloon-container.fade-in
+        div.balloon-container
+                div.balloon.blue
+                div.balloon.red
+                div.balloon.blue
+                div.balloon.red
+                div.balloon.blue
         .welcome__title-text-block
             div.welcome__title-text(lng="header_title") Make your dream business goal come true
             .welcome__text-block
-                p.welcome__title-text-gray(lng="header_text") when you need us for improve your business, then come with us to help your business have reach it, you just sit and feel that goal.
+                p.welcome__title-text-gray(lng="header_text") when you need us for improve your business,
+                bk.welcome__title-text-gray(lng="header_text2")  then come with us to help your business have reach it, you just sit and feel that goal.
                 +PopupBlock('welcome__button-start','header_content_button')
                 
                                  

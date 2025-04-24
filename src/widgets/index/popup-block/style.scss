@@ -11,7 +11,34 @@
     display: unset;
   }
 
+   /* Стили для кнопки: */
+  .upload-button {
+    padding: 10px 15px;
 
+    color: var(--pure-white);
+    font-size: 16px;
+
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+
+    transition: background-color 0.3s;
+}
+
+.upload-button:hover {
+    background-color: #0056b3;
+}
+
+/* Скрываем стандартное поле ввода файла: */
+.file-input {
+    display: none; /* Скрыть стандартное поле ввода */
+}
+
+/* Стили для списка файлов: */
+.file-namee {
+  @include font-styles('Quicksand',700, 1rem, 1.5rem,var(--description-dark));
+}
  
 }
 

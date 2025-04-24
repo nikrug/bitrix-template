@@ -1,2 +1,2 @@
 import './example/index'
-import './slider/slider'
+import './slider/slider.ts'

@@ -13,83 +13,58 @@ setTimeout(() => {
     }, 1000) // 1000 milliseconds = 1 second
   })
 }, 5000) // 5000 milliseconds = 5 seconds
+document.addEventListener('DOMContentLoaded', () => {
+  // Функция для движения шариков
+  function moveBalloon (container: HTMLElement, balloon: HTMLElement) {
+    let velocityX = (Math.random() < 0.5 ? 1 : -1) * (Math.random() + 1) // Случайная скорость по X
+    let velocityY = (Math.random() < 0.5 ? 1 : -1) * (Math.random() + 1) // Случайная скорость по Y
+    const position = { x: Math.random() * (container.clientWidth - 30), y: Math.random() * (container.clientHeight - 30) }
 
-const container = document.querySelector('.balloon-container') as HTMLElement
-const balloonCount = 4 // Number of balloons to create
-const balloons: { balloon: HTMLElement; velocityX: number; velocityY: number }[] = []
+    function animate () {
+      position.x += velocityX
+      position.y += velocityY
+      const containerHeight = container!.clientHeight // Non-null assertion
+      const containerWidth = container!.clientWidth
+      const balloonSize = 30 // Размер шарика
 
-// Function to create a balloon
-function createBalloon (index: number) {
-  const balloon = document.createElement('div')
-  balloon.classList.add('balloon')
+      // Проверка столкновения с границами контейнера
+      if (position.x + balloonSize > container.clientWidth || position.x < 0) {
+        velocityX *= -1 // Изменить направление по оси X
+        position.x = Math.max(0, Math.min(containerWidth - balloonSize, position.x)) // Ensure we don't go out of bounds
+      }
+      if (position.y + balloonSize > container.clientHeight || position.y < 0) {
+        velocityY *= -1 // Изменить направление по оси Y
+        position.y = Math.max(0, Math.min(containerHeight - balloonSize, position.y)) // Ensure we don't go out of bounds
+      }
 
-  // Set balloon color: red for the first half and blue for the second
-  if (index < balloonCount / 2) {
-    balloon.style.background = 'linear-gradient(180deg, rgba(68, 133, 255, 0.8) 0%, #377DFF 100%)'
-  } else {
-    balloon.style.background = 'linear-gradient(180deg, #FF8E8E 0%, #F62424 100%)'
-  }
+      // Обновление позиции шарика
+      balloon.style.transform = `translate(${position.x}px, ${position.y}px)`
 
-  // Set fixed initial positions for balloons
-  const startX = (index % 3) * 200 + 50 // Arrange balloons in a row
-  const startY = Math.floor(index / 3) * 100 + 50 // Two rows of balloons
-  balloon.style.left = `${startX}px`
-  balloon.style.top = `${startY}px`
-
-  // Add balloon to the container
-  container.appendChild(balloon)
-
-  const velocityX = (Math.random() < 0.5 ? 1 : -1) * (Math.random() * 1 + 1)
-  const velocityY = (Math.random() < 0.5 ? 1 : -1) * (Math.random() * 1 + 1)
-  balloons.push({ balloon, velocityX, velocityY })
-
-  // Start animation
-  moveBalloon(balloons[balloons.length - 1])
-}
-
-// Function to move balloons
-function moveBalloon (balloonObj: { balloon: HTMLElement; velocityX: number; velocityY: number }) {
-  let { balloon, velocityX, velocityY } = balloonObj
-  let posX = parseFloat(balloon.style.left)
-  let posY = parseFloat(balloon.style.top)
-
-  function animate () {
-    posX += velocityX
-    posY += velocityY
-
-    const containerHeight = container.clientHeight
-    const containerWidth = container.clientWidth
-    const balloonWidth = 30
-    const balloonHeight = 30
-
-    // Collision check with container boundaries
-    if (posX + balloonWidth > containerWidth || posX < 0) {
-      velocityX *= -1 // Change direction on X-axis
-      posX = Math.max(0, posX) // Ensure we don't go out of bounds on left
-      posX = Math.min(containerWidth - balloonWidth, posX) // Ensure we don't go out of bounds on right
+      requestAnimationFrame(animate) // Рекурсивный вызов для анимации
     }
 
-    // Check if balloon is out of bounds on height
-    if (posY + balloonHeight > containerHeight || posY < 0) {
-      velocityY *= -1 // Change direction on Y-axis
-      posY = Math.max(0, posY) // Ensure we don't go out of bounds on top
-      posY = Math.min(containerHeight - balloonHeight, posY) // Ensure we don't go out of bounds on bottom
-    }
-
-    // Update balloon position
-    balloon.style.left = `${posX}px`
-    balloon.style.top = `${posY}px`
-
-    requestAnimationFrame(animate) // Recursive call for animation
+    animate()
   }
 
-  animate()
-}
+  // Получаем все контейнеры с классом balloon-container
+  const containers = document.querySelectorAll('.balloon-container') as NodeListOf<HTMLElement>
 
-// Create a fixed number of balloons
-for (let i = 0; i < balloonCount; i++) {
-  createBalloon(i)
-}
+  containers.forEach(container => {
+    // Проверка наличия хотя бы одного элемента с классом balloon в текущем контейнере
+    const balloons = container.getElementsByClassName('balloon')
+
+    if (balloons.length > 0) { // Если есть хотя бы один шарик
+      const balloonCount = balloons.length // Число шариков на основе имеющихся элементов
+
+      // Создание фиксированного количества шариков на основе имеющихся элементов
+      for (let i = 0; i < balloonCount; i++) {
+        moveBalloon(container, balloons[i] as HTMLElement) // Теперь мы передаем текущий контейнер
+      }
+    } else {
+      console.warn('No balloons found in the balloon container.')
+    }
+  })
+})
 
 const elements = document.querySelectorAll('.fade-in') as NodeListOf<HTMLElement>
 

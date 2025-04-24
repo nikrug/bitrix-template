@@ -1,5 +1,10 @@
-// Language array with translations
-const langArr: { [key: string]: { [key: string]: string } } = {
+// Определяем перечисление языков
+enum AllLang {
+  RU = 'ru',
+  EN = 'en',
+}
+
+const langArr: Record<string, Record<AllLang, string>> = {
   unit: {
     ru: 'Добро пожаловать',
     en: 'Welcome'
@@ -53,8 +58,12 @@ const langArr: { [key: string]: { [key: string]: string } } = {
     en: 'Make your dream business goal come true'
   },
   header_text: {
-    ru: 'Когда бизнес нуждается в преобразовании, вы просто приходите к нам, расстабляетесь и наблюдаете, как цели становятся реальностью.',
-    en: 'When you need us to improve your business, then come with us to help your business reach it, you just sit and feel that goal.'
+    ru: 'Когда бизнес нуждается в преобразовании,',
+    en: 'when you need us for improve your business,'
+  },
+  header_text2: {
+    ru: ' вы просто приходите к нам, расстабляетесь и наблюдаете, как цели становятся реальностью.',
+    en: 'then come with us to help your business reach it, you just sit and feel that goal.'
   },
   header_overlay1_title: {
     ru: '800+ Готово',
@@ -285,18 +294,14 @@ const langArr: { [key: string]: { [key: string]: string } } = {
     en: 'Location'
   } // <-- No trailing comma here
 }
-
-// Language settings
-const allLang = ['en', 'ru']
-
 // Функция для добавления обработчиков событий для кнопок
 function setupLanguageButtons () {
   const languageButtons = document.querySelectorAll('.language-button') as NodeListOf<HTMLButtonElement>
 
   languageButtons.forEach((button) => {
     button.addEventListener('click', function () {
-      const lang = button.getAttribute('data-lang')
-      if (lang && allLang.includes(lang)) {
+      const lang = button.getAttribute('data-lang') as AllLang // Убеждаемся, что это AllLang
+      if (lang && Object.values(AllLang).includes(lang)) {
         changeLanguage(lang)
       } else {
         console.error('Язык не поддерживается: ' + lang)
@@ -306,9 +311,9 @@ function setupLanguageButtons () {
 }
 
 // Функция смены языка
-function changeLanguage (lang: string) {
-  // Сохранить язык в URL
-  location.hash = lang
+function changeLanguage (lang: AllLang) {
+  // Сохранить язык в localStorage
+  localStorage.setItem('preferredLanguage', lang)
 
   // Обновить текст на странице
   updateText(lang)
@@ -319,20 +324,20 @@ function changeLanguage (lang: string) {
 
 // Функция инициализации языка
 function initializeLanguage () {
-  let hash = window.location.hash.substring(1)
+  // Получить язык из localStorage или использовать язык по умолчанию
+  let lang = (localStorage.getItem('preferredLanguage') as AllLang) || AllLang.RU // По умолчанию русский
 
-  // Если язык не поддерживается, установите по умолчанию
-  if (!allLang.includes(hash)) {
-    hash = 'ru' // По умолчанию русский
-    location.hash = hash // Обновляем хэш для корректного отображения
+  // Если язык не поддерживается, установить по умолчанию
+  if (!Object.values(AllLang).includes(lang)) {
+    lang = AllLang.RU // По умолчанию русский
   }
 
-  updateText(hash)
-  updateTestimonialsText(hash) // Обновляем текст отзывов при инициализации
+  updateText(lang)
+  updateTestimonialsText(lang) // Обновляем текст отзывов при инициализации
 }
 
 // Функция обновления текста на странице
-function updateText (lang: string) {
+function updateText (lang: AllLang) {
   document.querySelector('title')!.innerHTML = langArr.unit[lang]
 
   for (const key in langArr) {
@@ -344,7 +349,7 @@ function updateText (lang: string) {
 }
 
 // Функция обновления текста отзывов
-function updateTestimonialsText (lang: string) {
+function updateTestimonialsText (lang: AllLang) {
   const testimonials = document.querySelectorAll('.testimonials__pannel')
 
   testimonials.forEach((panel, index) => {

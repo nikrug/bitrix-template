@@ -29,7 +29,7 @@
     width: 100%;
     max-width: 330px; 
     height: auto;
-    max-height: 400px;  
+    max-height: 300px;  
    }
 
    .potfolio__button{
@@ -119,6 +119,14 @@
         padding: 0;
        }
 
+       .portfolio__image-block img {
+        display: flex;
+        width: 100%;
+        max-width: 400px; 
+        height: auto;
+        max-height: 400px;  
+       }
+
        .portfolio{
         display: flex;
         flex-direction: column;
@@ -142,9 +150,6 @@
         padding: 0;
     }
 
-       .portfolio__image-block img {
-        display: flex;
-       }
 
        .potfolio__button{
         @include button-style( 14.125rem, 3rem,var(--pure-white),1px solid var(--light-blue),3rem);
@@ -161,7 +166,7 @@
         .portfolio__overlay-image-1{
             position: absolute;
             top: 100px;
-            right: 90px;
+            right: 120px;
             z-index: 0;
 
             display: block;

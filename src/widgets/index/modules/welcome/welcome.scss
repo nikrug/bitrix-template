@@ -310,10 +310,10 @@
 
 
     .welcome__title-text{
-        width: 950px;
+        width: 750px;
 
         margin-top: -1.5rem;
-        margin-bottom: 1.5rem;
+       
 
         @include font-styles('Nunito',800, 4rem, 5.4375rem, var(--description-dark));
     }
@@ -321,7 +321,7 @@
     .welcome__button-start{
         @include button-style( 12.5625rem, 3rem,var(--light-blue),1px solid var(--light-blue),3rem);
         @include font-styles('Quicksand',700, 1rem, 1.125rem, var(--pure-white));
-        margin-top: 0;
+        margin-top: 1.6rem;
         margin-bottom: 0;
     }
 
@@ -376,7 +376,10 @@
     }
 
     .welcome__title-text-gray{
+        margin: -.4rem;
         margin-bottom: 0;
+
+        white-space: nowrap;
     }
     
     }

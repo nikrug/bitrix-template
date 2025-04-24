@@ -1,55 +1,18 @@
 mixin slider 
-             .slider
-                .slider-wrapper
-                    .slider-item
-                        .slider__pannel
-                            .slider__pannel-image
-                                img.slider__image(src="public/images/testimonials/pannel-img.png")
-                                .slider__pannel-title-block
-                                    div(lng="testimonials_pannel_title" class="testimonials__pannel-title-text") Angel Rose
-                                    div(lng="testimonials_pannel_subtitle" class="testimonials__pannel-subtitle-text") Creative Manager
-                            p(lng="testimonials_text" class="testimonials__text") “ Lorem ipsum dolor sit amet, consectetur adipiscing elit.  Lorem ipsum dolor sit amet, consectetur adipiscing elit”
 
-                        .slider__pannel.pannel__show
-                            .slider__pannel-image
-                                img.slider__image(src="public/images/testimonials/pannel-img.png")
-                                .slider__pannel-title-block
-                                    div(lng="testimonials_pannel_title2" class="testimonials__pannel-title-text") Angel Rose
-                                    div(lng="testimonials_pannel_subtitle2" class="testimonials__pannel-subtitle-text") Creative Manager
-                            p(lng="testimonials_text2" class="testimonials__text") “ Lorem ipsum dolor sit amet, consectetur adipiscing elit.  Lorem ipsum dolor sit amet, consectetur adipiscing elit”
+    .swiper
+      .swiper-wrapper
+        .swiper-slide 
+            +slider-card(imageSrc, 'testimonials_pannel_title', 'testimonials_pannel_subtitle', 'testimonials_text')
+        .swiper-slide 
+            +slider-card(imageSrc, 'testimonials_pannel_title2', 'testimonials_pannel_subtitle2', 'testimonials_text2')
+        .swiper-slide 
+            +slider-card(imageSrc, 'testimonials_pannel_title3', 'testimonials_pannel_subtitle3', 'testimonials_text3')
+        .swiper-slide 
+            +slider-card(imageSrc, 'testimonials_pannel_title4', 'testimonials_pannel_subtitle4', 'testimonials_text4')
+        .swiper-slide 
+            +slider-card(imageSrc, 'testimonials_pannel_title5', 'testimonials_pannel_subtitle5', 'testimonials_text5')
+        .swiper-slide 
+            +slider-card(imageSrc, 'testimonials_pannel_title6', 'testimonials_pannel_subtitle6', 'testimonials_text6')
 
-                        .slider__pannel.pannel__show-tablet
-                            .slider__pannel-image
-                                img.slider__image(src="public/images/testimonials/pannel-img.png")
-                                .slider__pannel-title-block
-                                    div(lng="testimonials_pannel_title3" class="testimonials__pannel-title-text") Angel Rose
-                                    div(lng="testimonials_pannel_subtitle3" class="testimonials__pannel-subtitle-text") Creative Manager
-                            p(lng="testimonials_text3" class="testimonials__text") “ Lorem ipsum dolor sit amet, consectetur adipiscing elit.  Lorem ipsum dolor sit amet, consectetur adipiscing elit”
-
-
-                    .slider-item
-                        .slider__pannel
-                            .slider__pannel-image
-                                img.slider__image(src="public/images/testimonials/pannel-img.png")
-                                .slider__pannel-title-block
-                                    div(lng="testimonials_pannel_title4" class="testimonials__pannel-title-text") Angel Rose
-                                    div(lng="testimonials_pannel_subtitle4" class="testimonials__pannel-subtitle-text") Creative Manager
-                            p(lng="testimonials_text4" class="testimonials__text") “ Lorem ipsum dolor sit amet, consectetur adipiscing elit.  Lorem ipsum dolor sit amet, consectetur adipiscing elit”
-
-                        .slider__pannel.pannel__show
-                            .slider__pannel-image
-                                img.slider__image(src="public/images/testimonials/pannel-img.png")
-                                .slider__pannel-title-block
-                                    div(lng="testimonials_pannel_title5" class="testimonials__pannel-title-text") Angel Rose
-                                    div(lng="testimonials_pannel_subtitle5" class="testimonials__pannel-subtitle-text") Creative Manager
-                            p(lng="testimonials_text5" class="testimonials__text") “ Lorem ipsum dolor sit amet, consectetur adipiscing elit.  Lorem ipsum dolor sit amet, consectetur adipiscing elit”
-                        
-                        .slider__pannel.pannel__show-tablet
-                            .slider__pannel-image
-                                img.slider__image(src="public/images/testimonials/pannel-img.png")
-                                .slider__pannel-title-block
-                                    div(lng="testimonials_pannel_title6" class="testimonials__pannel-title-text") Angel Rose
-                                    div(lng="testimonials_pannel_subtitle6" class="testimonials__pannel-subtitle-text") Creative Manager
-                            p(lng="testimonials_text6" class="testimonials__text") “ Lorem ipsum dolor sit amet, consectetur adipiscing elit.  Lorem ipsum dolor sit amet, consectetur adipiscing elit”
-
-                    
+    //- Ваш скрипт инициализации Swiper будет в файле swiper-init.js

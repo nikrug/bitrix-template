@@ -65,6 +65,7 @@
     "webpack-dev-server": "^5.0.2"
   },
   "dependencies": {
+    "swiper": "^11.2.6",
     "uniqid": "^5.4.0"
   }
 }

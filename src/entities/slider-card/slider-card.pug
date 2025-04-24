@@ -1,0 +1,8 @@
+mixin slider-card(imageSrc = 'public/images/testimonials/pannel-img.png', lngTitle = 'testimonials_pannel_title2', lngSubtitle = 'testimonials_pannel_subtitle2', lngText = 'testimonials_text2')
+    .slider__pannel
+        .slider__pannel-image
+            img.slider__image(src=imageSrc, alt='Testimonial Panel Image')
+            .slider__pannel-title-block
+                div(lng= lngTitle, class='slider__pannel-title-text') 
+                div(lng=lngSubtitle, class='slider__pannel-subtitle-text') 
+        p.slider__text(lng=lngText) 

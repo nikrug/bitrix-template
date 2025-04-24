@@ -1,33 +1,31 @@
-const slides = document.querySelectorAll('.slider-item') as NodeListOf<HTMLElement>
-const sliderWrapper = document.querySelector('.slider-wrapper') as HTMLElement
+import Swiper from 'swiper'
+import { Navigation, Pagination, Autoplay } from 'swiper/modules'
 
-let currentSlide = 0
-const totalSlides = slides.length - 1 // Exclude duplicate when counting
-const slideInterval = 3000 // Set the interval time
+document.addEventListener('DOMContentLoaded', function () {
+  const swiper = new Swiper('.swiper', {
+    modules: [Pagination, Navigation, Autoplay],
+    loop: true, // Зацикливание слайдов
+    autoplay: {
+      delay: 3000, // задержка перед переключением слайда в миллисекундах
+      disableOnInteraction: false // продолжать автопрокрутку даже после взаимодействия
+    },
 
-function showSlide (index: number) {
-  sliderWrapper.style.transform = `translateX(-${index * 100}%)`
-}
-
-function startInterval () {
-  setInterval(() => { // Remove intervalId if not needed
-    currentSlide++
-
-    if (currentSlide > totalSlides) {
-      // Temporarily remove transition to avoid "jump"
-      sliderWrapper.style.transition = 'none'
-      sliderWrapper.style.transform = 'translateX(0%)'
-      setTimeout(() => {
-        currentSlide = 1 // Move to first slide (duplicate)
-        sliderWrapper.style.transition = 'transform 1.1s ease-in-out' // Re-enable transition
-        showSlide(currentSlide)
-      }, 50) // Small delay for styles
-    } else {
-      sliderWrapper.style.transition = 'transform 1.1s ease-in-out' // Set smooth transition
-      showSlide(currentSlide)
+    breakpoints: {
+      1244: {
+        slidesPerView: 3, // 3 слайда на больших экранах
+        slidesPerGroup: 1
+      },
+      // Когда окно равно 768px и выше
+      768: {
+        slidesPerView: 2, // 2 слайда на планшете
+        slidesPerGroup: 1
+      },
+      // Когда окно меньше 768px
+      320: {
+        slidesPerView: 1, // 1 слайд на мобильных устройствах
+        slidesPerGroup: 1
+      }
     }
-  }, slideInterval)
-}
-// Start the slider
-showSlide(currentSlide)
-startInterval()
+  })
+  swiper.update()
+})
