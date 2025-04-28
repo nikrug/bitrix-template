@@ -28,6 +28,7 @@
     height: 100%;
     margin: auto;
     padding:2rem 1.5rem ;
+    overflow-y: auto;
 
     text-align: center;
 
@@ -98,7 +99,7 @@
  .modal__email-name-container, .modal__message-container {
   position: relative;
 
-  margin: 20px 0;
+  margin: 30px 0;
 }
 
  .modal__email-name-container:hover {
@@ -133,17 +134,17 @@
 }
 
 .modal__email-name-container.error {
-  border-color: #dc3545; /* Красный цвет границы при ошибке */
+  border-color:  var(--error); /* Красный цвет границы при ошибке */
 }
 
 .modal__message-container.error {
-  border-color: #dc3545; /* Красный цвет границы при ошибке */
+  border-color:var(--error); /* Красный цвет границы при ошибке */
 }
 
 label.error {
-  color: #dc3545; /* Цвет текста лейбла */
+  color: var(--error); /* Цвет текста лейбла */
 
-  border-color: #dc3545; /* Красный цвет границы при ошибке */
+  border-color: var(--error); /* Красный цвет границы при ошибке */
 
 }
  
@@ -153,7 +154,34 @@ label.error {
      opacity: 1; /* Опционально: устанавливаем непрозрачность на 1, чтобы цвет был ярче */
  }
  
+ .error-message {
+  position: absolute;
 
+  margin: 2.5rem 28rem 0 0;
+
+  color: var(--error);
+  font-size: small;
+  white-space: nowrap;
+}
+
+.error-message-message {
+  position: absolute;
+
+  margin: 12rem 28rem 0 0;
+
+  color: var(--error);
+  font-size: small;
+  white-space: nowrap;
+}
+
+.hidden {
+  display: none; /* Скрываем элементы с этим классом */
+  margin: 2.5rem 28rem 0 0;
+
+  color: var(--error);
+  font-size: small;
+  white-space: nowrap;
+}
  
  .modal__message-container::placeholder {
      color: var(--light-blue); /* Задаем синий цвет для плейсхолдера */
@@ -183,6 +211,8 @@ label.error {
   margin-left: -5px; /* Отступ слева от изображения */
 
   vertical-align: middle; /* Выравнивание по центру по вертикали */
+
+  cursor: pointer;
 }
 
 .modal__email-message-text{
@@ -242,7 +272,7 @@ input:hover + label {
 }
 
 .name-container label.error, .email-container label.error, .message-container label.error {
-  color: #dc3545; /* Красный цвет текста при ошибке */
+  color: var(--error); /* Красный цвет текста при ошибке */
 }
 
 

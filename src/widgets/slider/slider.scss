@@ -15,7 +15,18 @@
   height: 100%;
 }
 
+@media(min-width:#{$br-desktop}px){
+  .swiper{
+    max-width: 1350px;
 
-   
+  }
+
+  .slider-swapper{
+    max-width: 1600px;
+  }
+
+  
+}
+
 
 

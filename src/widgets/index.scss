@@ -1,9 +1,12 @@
 @import "./footer/style";
 @import "./header/style";
 @import "./index/index";
-@import "./header/components/animations/animation";
 @import "./index/modules/about/about";
 @import "./index/modules/portfolio/portfolio";
 @import "./index/modules/services/services";
 @import "./index/modules/testimonials/testimonials";
 @import "./index/modules/welcome/welcome";
+@import "./slider/slider";
+@import "./header/components/balloon/balloon";
+@import "./header/components/preloader/preloader";
+@import "./header/components/visibility/visibility"

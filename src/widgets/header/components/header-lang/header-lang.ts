@@ -292,7 +292,52 @@ const langArr: Record<string, Record<AllLang, string>> = {
   footer_location: {
     ru: 'Адреса',
     en: 'Location'
-  } // <-- No trailing comma here
+  },
+  popup_title: {
+    [AllLang.RU]: 'Отправте нам сообщение',
+    [AllLang.EN]: 'Send us a message'
+  },
+  popup_subtitle: {
+    [AllLang.RU]: 'Мы поможем вам создать стратегию для ваших бизнес задача',
+    [AllLang.EN]: 'We move with make a Creative Strategy for help your business goal'
+  },
+  popup_name: {
+    [AllLang.RU]: 'Ваше имя',
+    [AllLang.EN]: 'Your name'
+  },
+  popup_email: {
+    [AllLang.RU]: 'Антон',
+    [AllLang.EN]: 'Email'
+  },
+  popup_message: {
+    [AllLang.RU]: 'А че звал сларк?',
+    [AllLang.EN]: 'Your Message'
+  },
+  popup_attach: {
+    [AllLang.RU]: 'прикрепить файл',
+    [AllLang.EN]: 'Attach file'
+  },
+  popup_button: {
+    [AllLang.RU]: 'Отправить сообщение',
+    [AllLang.EN]: 'Send message'
+  },
+  preloader_text: {
+    [AllLang.RU]: 'Поможем достич ваши цели',
+    [AllLang.EN]: 'will help to reach your goals.'
+  },
+
+  name_error_text: {
+    [AllLang.RU]: 'Введите имя',
+    [AllLang.EN]: 'Enter a name'
+  },
+  email_error_text: {
+    [AllLang.RU]: 'Укажите верный адресс почты',
+    [AllLang.EN]: 'Enter a valid email'
+  },
+  message_error_text: {
+    [AllLang.RU]: 'Наберите сообщение',
+    [AllLang.EN]: 'Enter a message'
+  }
 }
 // Функция для добавления обработчиков событий для кнопок
 function setupLanguageButtons () {
@@ -320,6 +365,7 @@ function changeLanguage (lang: AllLang) {
 
   // Обновить текст отзывов
   updateTestimonialsText(lang)
+  updatePopupText(lang)
 }
 
 // Функция инициализации языка
@@ -329,14 +375,13 @@ function initializeLanguage () {
 
   // Если язык не поддерживается, установить по умолчанию
   if (!Object.values(AllLang).includes(lang)) {
-    lang = AllLang.RU // По умолчанию русский
+    lang = AllLang.EN // По умолчанию русский
   }
-
   updateText(lang)
   updateTestimonialsText(lang) // Обновляем текст отзывов при инициализации
+  updatePopupText(lang)
 }
 
-// Функция обновления текста на странице
 function updateText (lang: AllLang) {
   document.querySelector('title')!.innerHTML = langArr.unit[lang]
 
@@ -346,6 +391,18 @@ function updateText (lang: AllLang) {
       element.innerHTML = langArr[key][lang]
     }
   }
+}
+// Обновление текста в всплывающем окне
+function updatePopupText (lang: AllLang) {
+  // Выбираем все элементы, которые имеют атрибут lng
+  const popupElements = document.querySelectorAll('[lng]')
+
+  popupElements.forEach((popupElement) => {
+    const lngKey = popupElement.getAttribute('lng') // Получаем значение атрибута lng
+    if (lngKey && langArr[lngKey]) {
+      popupElement.innerHTML = langArr[lngKey][lang] // Обновляем текст элемента
+    }
+  })
 }
 
 // Функция обновления текста отзывов
