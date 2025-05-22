@@ -1,6 +1,7 @@
 :root {
     --pure-white: #FFF;
     --pure-black: #fff;
+    --close-color:#000;
     --light-blue: #377DFF;
     --blue: #37DBFF;
     --description-dark: #1D1D1D;
@@ -37,6 +38,7 @@
 
 @media (prefers-color-scheme: dark) {
     :root {
+        --close-color:#EEE;
         --bk-color: #000;
         --pure-white: #0D0D0D;
         --pure-black: #000;

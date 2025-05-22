@@ -1,0 +1,8 @@
+mixin services-pannel(imageSrcBk = 'public/images/services/ellipse-blue.svg',imageSrc ="public/images/services/monitor.svg", lngTitle = 'services_pannel_text_blue', lngSubtitle = '')
+            a(href="/project" class="servises__pannel")
+                div.servises__image-container
+
+                    img(src= imageSrcBk, class="servises__image-background", alt="Фоновое изображение")
+                    img(src= imageSrc, class="servises__image-overlay", alt="Накладываемое изображение")
+                div.servises__pannel-text(lng=lngTitle) Social Media
+                div.servises__pannel-text(lng=lngSubtitle) 

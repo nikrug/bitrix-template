@@ -40,7 +40,26 @@
 .file-namee {
   @include font-styles('Quicksand',700, 1rem, 1.5rem,var(--description-dark));
 }
- 
+
+.error-label {
+  margin: 1rem;
+
+  color: var(--error); /* Цвет label при ошибке */
+
+  @include font-styles('Quicksand',700, 1rem, 1.5rem, var(--error));
 }
 
+.name-label{
+  @include font-styles('Quicksand',700, 1rem, 1.5rem, var(--light-blue));
+}
+
+.email-label{
+  @include font-styles('Quicksand',700, 1rem, 1.5rem, var(--light-blue));
+}
+
+.message-label{
+  @include font-styles('Quicksand',700, 1rem, 1.5rem, var(--light-blue));
+}
+
+}
 

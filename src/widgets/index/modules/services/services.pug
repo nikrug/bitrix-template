@@ -5,38 +5,17 @@ mixin services
             h2.servises__title-text(lng="services_title") Perfect and Fast Movement
             p.servises__text(lng="services_text") We move with make a Creative Strategy for help your business goal, we help to improve your income by a services we have. make your content look interesting and make people look for your business
             div.servises__read
-                div.servises__read-block
-                    a.servises__read-text(href="/project" lng="services_read")
+                a.servises__read-block(href="/project")
+                    div.servises__read-text(lng="services_read")
                     <svg width="24" height="24" viewBox="0 0 24 24" fill='var(--pure-white)'  xmlns="http://www.w3.org/2000/svg">
-                    <path d="M15 18L21 12L15 6" stroke="var(--light-blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M3 12H20" stroke="var(--light-blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M21 12H20" stroke="var(--light-blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M15 18L21 12L15 6" stroke="var(--light-blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M3 12H20" stroke="var(--light-blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M21 12H20" stroke="var(--light-blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
 
         div.servises__panel-block.fade-in
-            a(href="/project" class="servises__pannel")
-                div.servises__image-container
-
-                    img(src="public/images/services/ellipse-blue.svg", class="servises__image-background", alt="Фоновое изображение")
-                    img(src="public/images/services/monitor.svg", class="servises__image-overlay", alt="Накладываемое изображение")
-                div.servises__pannel-text(lng="services_pannel_text_blue") Social Media
-                div.servises__pannel-text(lng="services_pannel_text_blue2") Management
-
-            a(href="/project" class="servises__pannel")
-                div.servises__image-container
-                    img(src="public/images/services/ellipse-red.svg", class="servises__image-background", alt="Фоновое изображение")
-                    img(src="public/images/services/settings.svg", class="servises__image-overlay", alt="Накладываемое изображение")
-                div.servises__pannel-text(lng="services_pannel_text_red") Search Engine
-                div.servises__pannel-text(lng="services_pannel_text_red2") Optimization
-
-            a(href="/project" class="servises__pannel")
-                div.servises__image-container
-                    img(src="public/images/services/ellipse-green.svg", class="servises__image-background", alt="Фоновое изображение")
-                    img(src="public/images/services/pen-tool.svg", class="servises__image-overlay", alt="Накладываемое изображение")
-                div.servises__pannel-text(lng="services_pannel_text_green") Design
-
-            a(href="/project" class="servises__pannel")
-                div.servises__image-container
-                    img(src="public/images/services/ellipse-yellow.svg", class="servises__image-background", alt="Фоновое изображение")
-                    img(src="public/images/services/tv.svg", class="servises__image-overlay", alt="Накладываемое изображение")
-                div.servises__pannel-text(lng="services_pannel_text_yellow") Ads
+            +services-pannel('public/images/services/ellipse-blue.svg',"public/images/services/monitor.svg", 'services_pannel_text_blue',  'services_pannel_text_blue2')
+            +services-pannel('public/images/services/ellipse-red.svg',"public/images/services/settings.svg",  'services_pannel_text_red',  'services_pannel_text_red2')
+            +services-pannel('public/images/services/ellipse-green.svg',"public/images/services/pen-tool.svg",'services_pannel_text_green')
+            +services-pannel('public/images/services/ellipse-yellow.svg',"public/images/services/tv.svg",'services_pannel_text_yellow')
+            

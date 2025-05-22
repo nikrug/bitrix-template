@@ -28,50 +28,54 @@ export class PopupBlockController {
   }
 }
 
-// Создаём класс для обработки загрузки файлов
 export class FileUploader {
-  private fileInput: HTMLInputElement | null
-  private uploadButton: HTMLElement | null
-  private fileNameDisplay: HTMLElement | null
+  private fileInputs: NodeListOf<HTMLInputElement>
+  private uploadButtons: NodeListOf<HTMLElement>
+  private fileNameDisplays: NodeListOf<HTMLElement>
 
   constructor () {
-    // Находим элементы на странице
-    this.fileInput = document.querySelector('.file-input') as HTMLInputElement
-    this.uploadButton = document.querySelector('.upload-button')
-    this.fileNameDisplay = document.querySelector('.file-name')
+    // Находим все элементы на странице
+    this.fileInputs = document.querySelectorAll('.file-input') as NodeListOf<HTMLInputElement>
+    this.uploadButtons = document.querySelectorAll('.upload-button') as NodeListOf<HTMLElement>
+    this.fileNameDisplays = document.querySelectorAll('.file-name') as NodeListOf<HTMLElement>
 
     // Проверяем, найдены ли элементы
-    if (!this.fileInput || !this.uploadButton || !this.fileNameDisplay) {
+    if (this.fileInputs.length === 0 || this.uploadButtons.length === 0 || this.fileNameDisplays.length === 0) {
       console.error('Elements not found. Check your HTML.')
       return
     }
 
-    // Привязываем обработчики событий
-    this.uploadButton.addEventListener('click', this.onUploadButtonClick.bind(this))
-    this.fileInput.addEventListener('change', this.onFileInputChange.bind(this))
+    // Привязываем обработчики событий ко всем элементам
+    this.fileInputs.forEach((fileInput, index) => {
+      const uploadButton = this.uploadButtons[index]
+      const fileNameDisplay = this.fileNameDisplays[index]
+
+      uploadButton.addEventListener('click', () => this.onUploadButtonClick(fileInput))
+      fileInput.addEventListener('change', (event) => this.onFileInputChange(event, fileNameDisplay))
+    })
   }
 
-  private onUploadButtonClick (): void {
-    this.fileInput?.click()
+  private onUploadButtonClick (fileInput: HTMLInputElement): void {
+    fileInput.click()
   }
 
-  private onFileInputChange (event: Event): void {
+  private onFileInputChange (event: Event, fileNameDisplay: HTMLElement): void {
     const target = event.target as HTMLInputElement
     const files = target.files
 
     if (files && files.length > 0) {
       const file = files[0]
       console.log('Выбран файл:', file.name)
-      this.updateFileNameDisplay(file.name) // Обновляем имя файла
+      this.updateFileNameDisplay(fileNameDisplay, file.name) // Обновляем имя файла
       this.uploadFile(file)
     } else {
-      this.updateFileNameDisplay('') // Если файл не выбран
+      this.updateFileNameDisplay(fileNameDisplay, '') // Если файл не выбран
     }
   }
 
-  private updateFileNameDisplay (fileName: string): void {
-    if (this.fileNameDisplay) { // Проверяем, что объект не равен null
-      this.fileNameDisplay.textContent = fileName
+  private updateFileNameDisplay (fileNameDisplay: HTMLElement, fileName: string): void {
+    if (fileNameDisplay) { // Проверяем, что объект не равен null
+      fileNameDisplay.textContent = fileName
     } else {
       console.error('Элемент для отображения имени файла не найден.')
     }
@@ -100,103 +104,96 @@ document.addEventListener('DOMContentLoaded', () => {
 })
 
 document.addEventListener('DOMContentLoaded', () => {
-  const nameInput = document.querySelector('.name-input') as HTMLInputElement
-  const emailInput = document.querySelector('.email-input') as HTMLInputElement
-  const messageInput = document.querySelector('.message-input') as HTMLTextAreaElement
+  const forms = document.querySelectorAll('.contact-form')
 
-  const nameContainer = document.querySelector('.name-container') as HTMLElement
-  const emailContainer = document.querySelector('.email-container') as HTMLElement
-  const messageContainer = document.querySelector('.message-container') as HTMLElement
+  forms.forEach(form => {
+    const nameInput = form.querySelector('.name-input') as HTMLInputElement
+    const emailInput = form.querySelector('.email-input') as HTMLInputElement
+    const messageInput = form.querySelector('.message-input') as HTMLTextAreaElement
+    const submitButton = form.querySelector('.submit-button') as HTMLButtonElement
 
-  // Get corresponding labels
-  const nameLabel = nameContainer.querySelector('label') as HTMLLabelElement
-  const emailLabel = emailContainer.querySelector('label') as HTMLLabelElement
-  const messageLabel = messageContainer.querySelector('label') as HTMLLabelElement
+    const validateInputs = (): void => {
+      let isValid = true
 
-  const submitButton = document.querySelector('.submit-button') as HTMLButtonElement
+      // Валидация имени
+      const nameContainer = form.querySelector('.name-container') as HTMLElement
+      const nameError = nameContainer.querySelector('.error-message') as HTMLElement
+      const nameLabel = nameContainer.querySelector('.name-label') as HTMLElement
+      if (nameInput.value.trim() === '') {
+        nameContainer.classList.add('error')
+        nameLabel.classList.add('error-label')
+        nameError.classList.remove('hidden')
+        isValid = false
+      } else {
+        nameContainer.classList.remove('error')
+        nameLabel.classList.remove('error-label')
+        nameError.classList.add('hidden')
+      }
 
-  // Функция валидации
-  function validateInputs (): void {
-    let isValid = true
+      // Валидация электронной почты
+      const emailContainer = form.querySelector('.email-container') as HTMLElement
+      const emailError = emailContainer.querySelector('.error-message') as HTMLElement
+      const emailLabel = emailContainer.querySelector('.email-label') as HTMLElement
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+      if (!emailRegex.test(emailInput.value)) {
+        emailContainer.classList.add('error')
+        emailLabel.classList.add('error-label')
+        emailError.classList.remove('hidden')
+        isValid = false
+      } else {
+        emailContainer.classList.remove('error')
+        emailLabel.classList.remove('error-label')
+        emailError.classList.add('hidden')
+      }
 
-    // Проверка имени
-    const nameError = nameContainer.querySelector('.error-message') as HTMLDivElement
-    if (nameInput.value.trim() === '') {
-      nameContainer.classList.add('error')
-      nameError.classList.remove('hidden')
-      nameLabel.classList.add('error') // Убираем класс "hidden", чтобы показать сообщение
-      isValid = false
-    } else {
-      nameContainer.classList.remove('error')
-      nameError.classList.add('hidden')
-      nameLabel.classList.remove('error') // Добавляем класс "hidden", чтобы скрыть сообщение
+      // Валидация сообщения
+      const messageContainer = form.querySelector('.message-container') as HTMLElement
+      const messageError = messageContainer.querySelector('.error-message') as HTMLElement
+      const messageLabel = messageContainer.querySelector('.message-label') as HTMLElement
+      if (messageInput.value.trim() === '') {
+        messageContainer.classList.add('error')
+        messageLabel.classList.add('error-label')
+        messageError.classList.remove('hidden')
+        isValid = false
+      } else {
+        messageContainer.classList.remove('error')
+        messageLabel.classList.remove('error-label')
+        messageError.classList.add('hidden')
+      }
+
+      // Включаем или отключаем кнопку отправки
+      submitButton.disabled = !isValid
     }
 
-    // Проверка электронной почты
-    const emailError = emailContainer.querySelector('.error-message') as HTMLDivElement
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-    if (!emailRegex.test(emailInput.value)) {
-      emailContainer.classList.add('error')
-      emailError.classList.remove('hidden')
-      emailLabel.classList.add('error')// Убираем класс "hidden", чтобы показать сообщение
-      isValid = false
-    } else {
-      emailContainer.classList.remove('error')
-      emailError.classList.add('hidden')
-      emailLabel.classList.remove('error') // Добавляем класс "hidden", чтобы скрыть сообщение
-    }
+    // Обработчики ввода для валидации
+    nameInput.addEventListener('input', validateInputs)
+    emailInput.addEventListener('input', validateInputs)
+    messageInput.addEventListener('input', validateInputs)
 
-    // Проверка сообщения
-    const messageError = messageContainer.querySelector('.error-message') as HTMLDivElement
-    if (messageInput.value.trim() === '') {
-      messageContainer.classList.add('error')
-      messageError.classList.remove('hidden')
-      messageLabel.classList.add('error') // Убираем класс "hidden", чтобы показать сообщение
-      isValid = false
-    } else {
-      messageContainer.classList.remove('error')
-      messageError.classList.add('hidden')
-      messageLabel.classList.remove('error') // Добавляем класс "hidden", чтобы скрыть сообщение
-    }
+    // Обработка отправки формы
+    form.addEventListener('submit', (event: Event) => {
+      event.preventDefault()
 
-    // Включаем или отключаем кнопку отправки на основе валидности
-    submitButton.disabled = !isValid
-  }
+      if (submitButton.disabled) {
+        return // Предотвращаем отправку, если кнопка отключена
+      }
 
-  // Добавляем обработчики ввода для валидации
-  nameInput.addEventListener('input', validateInputs)
-  emailInput.addEventListener('input', validateInputs)
-  messageInput.addEventListener('input', validateInputs)
+      // Обработка валидных данных формы
+      console.log('Form submitted with:', {
+        name: nameInput.value,
+        email: emailInput.value,
+        message: messageInput.value
+      })
 
-  // Добавляем обработчики ввода для валидации
-  nameInput.addEventListener('input', validateInputs)
-  emailInput.addEventListener('input', validateInputs)
-  messageInput.addEventListener('input', validateInputs)
-
-  // Bind validation function to input events
-  nameInput.addEventListener('input', validateInputs)
-  emailInput.addEventListener('input', validateInputs)
-  messageInput.addEventListener('input', validateInputs)
-
-  // Handle form submission
-  submitButton.addEventListener('click', (event: MouseEvent) => {
-    event.preventDefault()
-
-    if (submitButton.disabled) {
-      return // Prevent submission if the button is disabled
-    }
-
-    // Process the validated form data
-    console.log('Form submitted with:', {
-      name: nameInput.value,
-      email: emailInput.value,
-      message: messageInput.value
+      // Очистка полей
+      nameInput.value = ''
+      emailInput.value = ''
+      messageInput.value = ''
+      validateInputs() // Повторная валидация для сброса состояния кнопки
     })
 
-    // Optionally: Clear inputs
-    nameInput.value = ''
-    emailInput.value = ''
-    messageInput.value = ''
-    validateInputs() // Re-validate to reset the button state
+    // Скрываем все сообщения об ошибках при загрузке
+    const errorMessages = form.querySelectorAll('.error-message') as NodeListOf<HTMLElement>
+    errorMessages.forEach(errorMessage => errorMessage.classList.add('hidden'))
   })
 })
